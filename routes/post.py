@@ -105,4 +105,26 @@ def create_post_blueprint(supabase: Client):
             # if an error occurs, return an error response
             return errorHandler(str(e))
 
+    @post_blueprint.route('/<path:post_id>', methods=['DELETE'])
+    def delete_post(post_id):
+        # check if uuid is a valid number
+        if not re.match(r'^[0-9a-f-]+$', post_id):
+            # if uuid is not a valid uuid, return a 404 response
+            return createResponse("post re not found", 404)
+        # -----------------------------------------------------------------------------------------------
+        # Database querys to get post and posts - error handling with try/except
+        # -----------------------------------------------------------------------------------------------
+        return createResponse("post deleted", 200)
+
+    @post_blueprint.route('/<path:post_id>/like', methods=['POST'])
+    def delete_post(post_id):
+        # check if uuid is a valid number
+        if not re.match(r'^[0-9a-f-]+$', post_id):
+            # if uuid is not a valid uuid, return a 404 response
+            return createResponse("post re not found", 404)
+        # -----------------------------------------------------------------------------------------------
+        # Database querys to get post and posts - error handling with try/except
+        # -----------------------------------------------------------------------------------------------
+        return createResponse("post deleted", 200)
+
     return post_blueprint
