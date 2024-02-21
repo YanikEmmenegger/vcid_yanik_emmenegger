@@ -15,6 +15,7 @@ def create_auth_blueprint(supabase: Client):
         if not email or not password:
             return createResponse("Bad Request - please provide email and password", 400)
         try:
+            # separate login and register
             session = supabase.auth.sign_in_with_password({"email": email, "password": password})
             user = supabase.table('users').select('*').eq('email', email).execute()
             response = createResponse("Login successful", 200, user.data, session.session.refresh_token)

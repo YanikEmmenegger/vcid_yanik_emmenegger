@@ -8,6 +8,7 @@ load_dotenv()
 
 
 def errorHandler(e):
+    print(e)
     switcher = {
         'Invalid login credentials': createResponse("Unauthorized - invalid login credentials", 401),
         'Invalid Refresh Token: Refresh Token Not Found': createResponse("Unauthorized - invalid token", 401),
