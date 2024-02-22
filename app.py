@@ -4,6 +4,7 @@ from routes.auth import create_auth_blueprint
 from supabase import create_client, Client
 from dotenv import load_dotenv
 import os
+from routes.avatar import create_avatar_blueprint
 
 from routes.post import create_post_blueprint
 from routes.profile import create_profile_blueprint
@@ -29,6 +30,9 @@ app.register_blueprint(post_blueprint, url_prefix='/api/post')
 
 profile_blueprint = create_profile_blueprint(supabase)
 app.register_blueprint(profile_blueprint, url_prefix='/api/profile')
+
+avatar_blueprint = create_avatar_blueprint(supabase)
+app.register_blueprint(avatar_blueprint, url_prefix='/api/avatar')
 
 if __name__ == '__main__':
     app.run(debug=True)
