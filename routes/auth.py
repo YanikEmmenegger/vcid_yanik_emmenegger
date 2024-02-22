@@ -1,8 +1,10 @@
 from datetime import timedelta
 
 from flask import request, Blueprint
-from helpers import createResponse, errorHandler
 from supabase import Client
+
+from helpers import createResponse, errorHandler
+
 
 
 def create_auth_blueprint(supabase: Client):
@@ -34,9 +36,14 @@ def create_auth_blueprint(supabase: Client):
                 session = supabase.auth.sign_in_with_password({"email": email, "password": password})
                 try:
                     # select user from supabase
-                    user = supabase.table('users').select('*').eq('email', email).execute().data
-                    # create response object with user data and refresh token
-                    response = createResponse("Login successful", 200, user, session.session.refresh_token)
+                    user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email', email).execute().data
+                    # if user does not have a name, return a response to update profile
+                    print(user[0]['name'])
+                    if user[0]['name'] is None:
+                        response = createResponse("Please update your profile", 200, user, session.session.refresh_token)
+                    else:
+                        # create response object with user data and refresh token
+                        response = createResponse("Login successful", 200, user, session.session.refresh_token)
                     # set uuid in cookies
                     response.set_cookie('uuid', user[0]['id'], httponly=True, secure=True, samesite='Strict',
                                         max_age=timedelta(days=30))
@@ -45,11 +52,9 @@ def create_auth_blueprint(supabase: Client):
                 except Exception as e:
                     # if an error occurs, return an error response
                     return errorHandler(str(e))
-
             except Exception as e:
                 # if an error occurs, return an error response
                 return errorHandler(str(e))
-
         except Exception as e:
             # if an error occurs, return an error response
             return errorHandler(str(e))
