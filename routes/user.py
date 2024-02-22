@@ -21,7 +21,9 @@ def create_user_blueprint(supabase: Client):
         try:
             # get users from supabase
             users = supabase.table('users').select('bio, email, id, name, avatars(icon)').ilike('name', f'%{name}%').limit(50).execute()
-
+            # add link to user
+            for user in users.data:
+                user['user'] = f"/api/user/{user['id']}"
             data = {
                 "count": len(users.data),
                 "users": users.data
