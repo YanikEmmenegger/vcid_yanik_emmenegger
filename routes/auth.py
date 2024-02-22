@@ -20,7 +20,7 @@ def create_auth_blueprint(supabase: Client):
             return createResponse("Bad Request - please provide email and password", 400)
         # check if user exists
         try:
-            user = supabase.table('users').select('*').eq('email', email).execute().data
+            user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email', email).execute().data
             # if user does not exist (register)
             if not user:
                 # try to sign up
