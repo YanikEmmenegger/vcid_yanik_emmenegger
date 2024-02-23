@@ -54,7 +54,7 @@ def createResponse(message, statusCode, data=None, refresh_token=None):
     # if refresh token is provided, set it as a cookie
     if refresh_token:
         # set refresh token as a cookie
-        response.set_cookie('refresh_token', refresh_token, httponly=True, secure=True, samesite='Strict',
+        response.set_cookie('refresh_token', refresh_token, httponly=False, secure=True, samesite=None,
                             max_age=timedelta(days=30))
     # return response
     return response

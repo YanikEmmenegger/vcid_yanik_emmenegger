@@ -17,7 +17,10 @@ SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 app = Flask(__name__, static_url_path='', static_folder='app')
-CORS(app)
+# Konfiguriere CORS für Anfragen von localhost:3000
+CORS(app, supports_credentials=True, resources={
+    r"/api/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000"]}
+})
 
 auth_blueprint = create_auth_blueprint(supabase)
 app.register_blueprint(auth_blueprint, url_prefix='/api/auth')
@@ -48,6 +51,12 @@ def catch_all(path):
         return send_from_directory('app', path)
     else:
         return send_from_directory('app', 'index.html')
+
+
+# Neue Route für die Weiterleitung von / zu /app
+@app.route('/')
+def redirect_to_app():
+    return redirect('/app/', code=302)
 
 
 if __name__ == '__main__':

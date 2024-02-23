@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const LoginPage: FC = () => {
+    const [loginOngoing, setLoginOngoing] = useState(false)
 
 // Konfiguriere Axios global (optional)
     const [email, setEmail] = useState("");
@@ -16,6 +17,11 @@ const LoginPage: FC = () => {
     const handlePasswordChange = (e: any) => setPassword(e.target.value);
 
     const handleClicked = async () => {
+
+        setLoginOngoing(true)
+        setTimeout(() => {
+            setLoginOngoing(false)
+        }, 500)
         if (email === "" || password === "") {
             toast.error("Please fill in all fields!");
             return;
@@ -37,12 +43,19 @@ const LoginPage: FC = () => {
                 email: email,
                 password: password
             });
-            if (response.status === 200) {
+            if (response.data.status.message === "Registration successful - please verify your account by email") {
                 console.log(response.data);
-                toast.success("You have successfully logged in!");
-                //window.location.href = "/profile";
+                toast.success("Please verify your email address to continue!");
+                return;
             }
-        }catch (e) {
+            window.location.href = "/app/profile";
+        }catch (e:any) {
+
+            if (e.response.data.status.message === 'Unauthorized - email not confirmed') {
+                toast.error('Please verify your email address to continue!');
+                return;
+            }
+
             toast.error("An error occurred while trying to log in!");
             console.log(e)
             return;
@@ -60,7 +73,7 @@ const LoginPage: FC = () => {
                     <Input onChange={handleEmailChange} name="email" placeholder="E-Mail" type="text" value={email}/>
                     <Input onChange={handlePasswordChange} name="password" placeholder="Passwort" type="password"
                            value={password}/>
-                    <Button onClick={handleClicked} text={"Login / SignUp"}/>
+                    <Button disabled={loginOngoing} onClick={handleClicked} text={loginOngoing ? "login processing" : "Login / SignUp"}/>
                 </div>
             </div>
         </>

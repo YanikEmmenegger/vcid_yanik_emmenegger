@@ -10,7 +10,7 @@ const NavigationBar: FC = () => {
     const createRoutes = () => {
         return routes.map(({icon: Icon, name, path}) => {
             return Icon ?
-                <NavigationButton key={name} icon={Icon} label={name} href={path} id={name}></NavigationButton> : null
+                <NavigationButton key={name} icon={Icon} label={name} href={"/app"+path} id={name}></NavigationButton> : null
         }).filter((el) => {
             return el != null
         })
