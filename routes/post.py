@@ -26,8 +26,8 @@ def create_post_blueprint(supabase: Client):
         try:
             post = supabase.table('posts').insert(
                 {'post': post, 'user_id': user_id}).execute().data[0]
-            
-            #add user link to post
+
+            # add user link to post
             post['user'] = f"/api/user/{user_id}"
             # add link to post
             post['link'] = f"/api/post/{post['id']}"
@@ -56,13 +56,13 @@ def create_post_blueprint(supabase: Client):
         # if no limit is set, set limit to 50 and get posts count for pagination
         if not limit:
             limit = 50
-            # build supabase query to get posts count
+            # app supabase query to get posts count
             supabase_query_no_limit = supabase.table('posts').select('*', count='exact')
             if uuid:
-                # build supabase query to get posts count for a specific user
+                # app supabase query to get posts count for a specific user
                 supabase_query_no_limit = supabase_query_no_limit.eq('user_id', uuid)
             if query:
-                # build supabase query to get posts count for a specific query
+                # app supabase query to get posts count for a specific query
                 supabase_query_no_limit = supabase_query_no_limit.ilike('post', f'%{query}%')
 
             try:
@@ -71,14 +71,14 @@ def create_post_blueprint(supabase: Client):
             except Exception as e:
                 # if an error occurs, return an error response
                 return errorHandler(str(e))
-        # build supabase query to get posts with likes and comments
+        # app supabase query to get posts with likes and comments
         supabase_query = supabase.table('posts').select(
             '*, likes(id, user_id), comments(comment, created_at, id, user_id)').limit(limit).offset(offset)
         if uuid:
-            # build supabase query to get posts for a specific user
+            # app supabase query to get posts for a specific user
             supabase_query = supabase_query.eq('user_id', uuid)
         if query:
-            # build supabase query to get posts for a specific query
+            # app supabase query to get posts for a specific query
             supabase_query = supabase_query.ilike('post', f'%{query}%')
 
         try:
@@ -102,7 +102,7 @@ def create_post_blueprint(supabase: Client):
                     post_links.append(post_link)
                     offset += limit
 
-            #add user link to each post
+            # add user link to each post
             for post in posts:
                 post['user'] = f"/api/user/{post['user_id']}"
             # add link to post 
@@ -137,7 +137,7 @@ def create_post_blueprint(supabase: Client):
             # get post from supabase
             post = supabase.table('posts').select(
                 '*, likes(id, user_id), comments(comment, created_at, id, user_id)', count='exact').eq('id',
-                                                                                        post_id).execute()
+                                                                                                       post_id).execute()
             if post.count == 0:
                 # if post is not found, return a 404 response
                 return createResponse("post not found", 404)
@@ -150,7 +150,6 @@ def create_post_blueprint(supabase: Client):
             # if an error occurs, return an error response
             return errorHandler(str(e))
 
-    
     @post_blueprint.route('/<path:post_id>', methods=['DELETE'])
     def delete_post(post_id):
         # check if profile is logged in
@@ -158,7 +157,7 @@ def create_post_blueprint(supabase: Client):
         if not isinstance(tokenOrError, str):
             # if tokenOrError is not a string, it is a response object (profile not logged in, or error occurred)
             return tokenOrError
-        
+
         # check if post_id has a shlash at the end, remove it
         if post_id.endswith("/"):
             post_id = post_id[:-1]
@@ -166,27 +165,25 @@ def create_post_blueprint(supabase: Client):
         if not re.match(r'^[0-9a-f-]+$', post_id):
             # if post_id is not a valid number, return a 404 response
             return createResponse("post not found", 404, refresh_token=tokenOrError)
-        try: 
+        try:
             deletion = supabase.table('posts').delete().eq('id', post_id).execute()
             print(deletion)
             if len(deletion.data) == 0:
                 # if post is not found, return a 404 response
-                return createResponse("post not found, already deleted or action not allowed for user", 404, refresh_token=tokenOrError)
+                return createResponse("post not found, already deleted or action not allowed for user", 404,
+                                      refresh_token=tokenOrError)
             return createResponse("post deleted", 200, refresh_token=tokenOrError)
         except Exception as e:
-           # if an error occurs, return an error response
+            # if an error occurs, return an error response
             response = errorHandler(str(e))
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
-        
-        
+
     @post_blueprint.route('/<path:post_id>/like', methods=['POST'])
     def like_post(post_id):
 
-
-
         def getAllLikesForPost(post_id):
-            try: 
+            try:
                 likes = supabase.table('likes').select('*').eq('post_id', post_id).execute().data
                 return likes
             except Exception as e:
@@ -197,19 +194,22 @@ def create_post_blueprint(supabase: Client):
         if not isinstance(tokenOrError, str):
             # if tokenOrError is not a string, it is a response object (profile not logged in, or error occurred)
             return tokenOrError
-        try: 
+        try:
             # check if post exists
             if not supabase.table('posts').select('id', count='exact').eq('id', post_id).execute().count == 1:
                 # if post is not found, return a 404 response
                 return createResponse("post not found", 404, refresh_token=tokenOrError)
             # check if post is already liked
-            try: 
-                if  supabase.table('likes').select('id', count='exact').eq('post_id', post_id).eq('user_id', request.cookies.get('uuid')).execute().count == 1:
+            try:
+                if supabase.table('likes').select('id', count='exact').eq('post_id', post_id).eq('user_id',
+                                                                                                 request.cookies.get(
+                                                                                                     'uuid')).execute().count == 1:
                     # delete like if post is already liked
-                    try: 
-                        supabase.table('likes').delete().eq('post_id', post_id).eq('user_id', request.cookies.get('uuid')).execute()
+                    try:
+                        supabase.table('likes').delete().eq('post_id', post_id).eq('user_id', request.cookies.get(
+                            'uuid')).execute()
                         likesOrError = getAllLikesForPost(post_id)
-                        #check if likes is array or error response
+                        # check if likes is array or error response
                         print(likesOrError)
                         if isinstance(likesOrError, list) or likesOrError == []:
                             data = {
@@ -217,49 +217,54 @@ def create_post_blueprint(supabase: Client):
                             }
                             print(data)
                             return createResponse("post unliked", 200, data=data, refresh_token=tokenOrError)
-                        return likesOrError.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                       max_age=timedelta(days=30))
+                        return likesOrError.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True,
+                                                       samesite='Strict',
+                                                       max_age=timedelta(days=30))
                     except Exception as e:
                         # if an error occurs, return an error response
                         response = errorHandler(str(e))
-                        return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                       max_age=timedelta(days=30))
+                        return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True,
+                                                   samesite='Strict',
+                                                   max_age=timedelta(days=30))
                 # like post
                 try:
-                    supabase.table('likes').insert({'post_id': post_id, 'user_id': request.cookies.get('uuid')}).execute()
+                    supabase.table('likes').insert(
+                        {'post_id': post_id, 'user_id': request.cookies.get('uuid')}).execute()
                     likesOrError = getAllLikesForPost(post_id)
-                    #check if likes is array or error response
+                    # check if likes is array or error response
                     if isinstance(likesOrError, list):
                         data = {
                             "likes": likesOrError
                         }
                         return createResponse("post liked", 200, data=data, refresh_token=tokenOrError)
-                    return likesOrError.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                       max_age=timedelta(days=30))
+                    return likesOrError.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True,
+                                                   samesite='Strict',
+                                                   max_age=timedelta(days=30))
                 except Exception as e:
                     # if an error occurs, return an error response
                     response = errorHandler(str(e))
-                    return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                       max_age=timedelta(days=30))
+                    return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True,
+                                               samesite='Strict',
+                                               max_age=timedelta(days=30))
             except Exception as e:
                 # if an error occurs, return an error response
                 response = errorHandler(str(e))
                 return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                       max_age=timedelta(days=30))
+                                           max_age=timedelta(days=30))
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
-        
+
     @post_blueprint.route('/<path:post_id>/comment', methods=['POST'])
     def comment_post(post_id):
         # check if profile is logged in
         tokenOrError = checkSession(request, supabase)
         if not isinstance(tokenOrError, str):
             # if tokenOrError is not a string, it is a response object (profile not logged in, or error occurred)
-            return tokenOrError 
-        # get request json
+            return tokenOrError
+            # get request json
         comment = request.json.get('comment')
         if not comment:
             return createResponse("Bad Request - please provide a comment", 400, refresh_token=tokenOrError)
@@ -269,7 +274,7 @@ def create_post_blueprint(supabase: Client):
         try:
             comment = supabase.table('comments').insert(
                 {'comment': comment, 'user_id': user_id, 'post_id': post_id}).execute().data[0]
-            #add user link to comment
+            # add user link to comment
             comment['user'] = f"/api/user/{user_id}"
             # add link to post
             comment['post'] = f"/api/post/{post_id}"
@@ -283,7 +288,7 @@ def create_post_blueprint(supabase: Client):
             response = errorHandler(str(e))
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
-        
+
     @post_blueprint.route('/<path:post_id>/comment', methods=['DELETE'])
     def delete_comment(post_id):
 
@@ -302,13 +307,14 @@ def create_post_blueprint(supabase: Client):
             deletion = supabase.table('comments').delete().eq('id', comment_id).execute().data
             if len(deletion) == 0:
                 # if comment is not found, return a 404 response
-                return createResponse("comment not found, already deleted or action not allowed for user", 404, refresh_token=tokenOrError)           
+                return createResponse("comment not found, already deleted or action not allowed for user", 404,
+                                      refresh_token=tokenOrError)
             return createResponse("comment deleted", 200, refresh_token=tokenOrError)
         except Exception as e:
-              # if an error occurs, return an error response
-                response = errorHandler(str(e))
-                return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                        max_age=timedelta(days=30))
+            # if an error occurs, return an error response
+            response = errorHandler(str(e))
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
+                                       max_age=timedelta(days=30))
 
     @post_blueprint.route('/<path:post_id>', methods=['PATCH'])
     def edit_post(post_id):
@@ -325,7 +331,7 @@ def create_post_blueprint(supabase: Client):
         user_id = request.cookies.get('uuid')
         # create post in supabase
         try:
-            #create timestamp for now
+            # create timestamp for now
             now = datetime.now()
             timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -333,7 +339,7 @@ def create_post_blueprint(supabase: Client):
                 {'post': post, 'updated_at': timestamp}).eq('id', post_id).execute().data
             if len(post) == 0:
                 return createResponse("post not found or user not allowed", 404, refresh_token=tokenOrError)
-            #add user link to post
+            # add user link to post
             post[0]['user'] = f"/api/user/{user_id}"
             # add link to post
             post[0]['link'] = f"/api/post/{post_id}"

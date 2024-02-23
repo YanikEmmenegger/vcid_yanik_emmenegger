@@ -6,7 +6,6 @@ from supabase import Client
 from helpers import createResponse, errorHandler
 
 
-
 def create_auth_blueprint(supabase: Client):
     auth_blueprint = Blueprint('auth', __name__)
 
@@ -20,7 +19,8 @@ def create_auth_blueprint(supabase: Client):
             return createResponse("Bad Request - please provide email and password", 400)
         # check if user exists
         try:
-            user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email', email).execute().data
+            user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email',
+                                                                                            email).execute().data
             # if user does not exist (register)
             if not user:
                 # try to sign up
@@ -36,11 +36,13 @@ def create_auth_blueprint(supabase: Client):
                 session = supabase.auth.sign_in_with_password({"email": email, "password": password})
                 try:
                     # select user from supabase
-                    user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email', email).execute().data
+                    user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email',
+                                                                                                    email).execute().data
                     # if user does not have a name, return a response to update profile
                     print(user[0]['name'])
                     if user[0]['name'] is None:
-                        response = createResponse("Please update your profile", 200, user, session.session.refresh_token)
+                        response = createResponse("Please update your profile", 200, user,
+                                                  session.session.refresh_token)
                     else:
                         # create response object with user data and refresh token
                         response = createResponse("Login successful", 200, user, session.session.refresh_token)

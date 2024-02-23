@@ -4,7 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="register" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="register">
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/.idea/vcid_frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/components/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/components/Input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/components/Layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/components/ToasterProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/components/navigation/NavigationBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/components/navigation/NavigationButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/helpers/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/pages/HomePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/pages/LoginPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/pages/ProfilePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/src/pages/SearchPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/REACT/vcid_frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/avatar.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/avatar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +59,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YanikEmmenegger&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="be0e97f5-bcd6-4018-8707-1909b2087b96" />
+        <option name="url" value="https://github.com/YanikEmmenegger/vcid_yanik_emmenegger.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -31,22 +87,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Run&quot;,
-    &quot;Flask server.vcid_yanik_emmenegger.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Flask server.Flask (app.py).executor": "Run",
+    "Flask server.vcid_yanik_emmenegger.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/yanik/PycharmProjects/vcid_yanik_emmenegger/app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/routes" />
       <recent name="$PROJECT_DIR$" />
@@ -116,6 +177,10 @@
       <workItem from="1708449345068" duration="17065000" />
       <workItem from="1708533235470" duration="3267000" />
       <workItem from="1708552815599" duration="27000" />
+      <workItem from="1708584621456" duration="21000" />
+      <workItem from="1708617820861" duration="1682000" />
+      <workItem from="1708675555744" duration="138000" />
+      <workItem from="1708690075090" duration="5456000" />
     </task>
     <task id="LOCAL-00001" summary="new structur">
       <option name="closed" value="true" />
@@ -157,13 +222,33 @@
       <option name="project" value="LOCAL" />
       <updated>1708552832693</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="register">
+      <option name="closed" value="true" />
+      <created>1708584637028</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708584637028</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new structur" />
     <MESSAGE value="new endpoints" />
     <MESSAGE value="register" />
@@ -171,6 +256,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$vcid_yanik_emmenegger.coverage" NAME="vcid_yanik_emmenegger Coverage Results" MODIFIED="1708076423029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1708543770954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1708695443631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

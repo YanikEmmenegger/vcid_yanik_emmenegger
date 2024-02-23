@@ -12,7 +12,7 @@ def errorHandler(e):
     print(e)
     # create switcher to handle different errors
     switcher = {
-        'Invalid login credentials': createResponse("Unauthorized - invalid login credentials", 401),
+        'Invalid login credentials': createResponse("Unauthorized - invalid login credentials", 400),
         'Invalid Refresh Token: Refresh Token Not Found': createResponse("Unauthorized - invalid token", 401),
         'Invalid Refresh Token: Refresh Token Expired': createResponse("Unauthorized - invalid token", 401),
         'Email not confirmed': createResponse("Unauthorized - email not confirmed", 401),

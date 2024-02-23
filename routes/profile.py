@@ -45,7 +45,6 @@ def create_profile_blueprint(supabase: Client):
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
 
-
     @profile_blueprint.route('/bio', methods=['PATCH'])
     def change_bio():
         # check if profile is logged in
@@ -82,7 +81,6 @@ def create_profile_blueprint(supabase: Client):
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
 
-
     @profile_blueprint.route('/avatar', methods=['PATCH'])
     def change_avatar():
         # check if profile is logged in
@@ -98,13 +96,13 @@ def create_profile_blueprint(supabase: Client):
             # if avatar_id is empty, return a 400 response
             return createResponse("No avatar_id provided", 400, refresh_token=tokenOrError)
         # check if avatar_id exists
-        try: 
+        try:
             avatar = supabase.table('avatars').select('id').eq('id', avatar_id).execute()
             print(avatar.data)
             if not avatar.data:
                 # if avatar_id does not exist, return a 400 response
                 return createResponse("Avatar not found", 404, refresh_token=tokenOrError)
-            try: 
+            try:
                 # update avatar in supabase
                 supabase.table('users').update({'avatar_id': avatar_id}).eq('id', request.cookies.get('uuid')).execute()
                 data = {
@@ -115,13 +113,13 @@ def create_profile_blueprint(supabase: Client):
                 # if an error occurs, return an error response
                 response = errorHandler(str(e))
                 return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
-                                        max_age=timedelta(days=30))
+                                           max_age=timedelta(days=30))
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
-        
+
     @profile_blueprint.route('/name', methods=['PATCH'])
     def change_name():
         # check if profile is logged in
@@ -157,5 +155,5 @@ def create_profile_blueprint(supabase: Client):
             response = errorHandler(str(e))
             return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
                                        max_age=timedelta(days=30))
-        
+
     return profile_blueprint

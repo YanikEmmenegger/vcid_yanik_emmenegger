@@ -10,7 +10,7 @@ def create_user_blueprint(supabase: Client):
 
     @user_blueprint.route('/', methods=['GET'])
     def get_users():
-       
+
         name = request.args.get('name')
         if not name:
             # if no query is set, return a 400 response
@@ -20,7 +20,9 @@ def create_user_blueprint(supabase: Client):
         # -----------------------------------------------------------------------------------------------
         try:
             # get users from supabase
-            users = supabase.table('users').select('bio, email, id, name, avatars(icon)').ilike('name', f'%{name}%').limit(50).execute()
+            users = supabase.table('users').select('bio, email, id, name, avatars(icon)').ilike('name',
+                                                                                                f'%{name}%').limit(
+                50).execute()
             # add link to user
             for user in users.data:
                 user['user'] = f"/api/user/{user['id']}"
@@ -33,11 +35,10 @@ def create_user_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             return errorHandler(str(e))
-           
 
     @user_blueprint.route('/<path:uuid>', methods=['GET'])
     def get_user(uuid: str):
-        
+
         if not re.match(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$', uuid):
             # if uuid is not a valid uuid, return a 404 response
             return createResponse("user not found", 404)
@@ -46,14 +47,15 @@ def create_user_blueprint(supabase: Client):
         # -----------------------------------------------------------------------------------------------
         try:
             # get user from supabase
-            user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('id', uuid).single().execute()
+            user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('id',
+                                                                                            uuid).single().execute()
             if not user:
                 # if user is not found, return a 404 response
                 return createResponse("User not found", 404)
         except Exception as e:
             # if an error occurs, return an error response
             return errorHandler(str(e))
-           
+
         try:
             # get posts count from supabase
             posts_count = supabase.table('posts').select("id", count='exact').eq('user_id', uuid).execute()
@@ -92,6 +94,6 @@ def create_user_blueprint(supabase: Client):
             return createResponse("User found", 200, data, )
         except Exception as e:
             # if an error occurs, return an error response
-           return errorHandler(str(e))
-           
+            return errorHandler(str(e))
+
     return user_blueprint

@@ -19,7 +19,7 @@ def create_avatar_blueprint(supabase: Client):
             return createResponse("Avatars found", 200, data)
         except Exception as e:
             return errorHandler(str(e))
-        
+
     @avatar_blueprint.route('/<path:avatar_id>', methods=['GET'])
     def get_avatar(avatar_id):
         # check if avatar_id has a shlash at the end, remove it
@@ -38,5 +38,3 @@ def create_avatar_blueprint(supabase: Client):
             return errorHandler(str(e))
 
     return avatar_blueprint
-
-
