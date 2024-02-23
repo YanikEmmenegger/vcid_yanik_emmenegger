@@ -75,7 +75,7 @@ def create_auth_blueprint(supabase: Client):
             # create response object
             response = createResponse("Logout successful", 200)
             # set refresh token and uuid as cookies with max_age=0 to delete them
-            response.set_cookie('refresh_token', '', httponly=False, secure=True, samesite=None, max_age=0)
+            response.set_cookie('refresh_token', '', httponly=True, secure=True, samesite=None, max_age=0)
             response.set_cookie('uuid', '', httponly=False, secure=True, samesite=None, max_age=0)
             # return response
             return response

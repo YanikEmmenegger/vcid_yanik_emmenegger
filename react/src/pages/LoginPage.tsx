@@ -3,8 +3,11 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import toast from "react-hot-toast";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
+
 
 const LoginPage: FC = () => {
+    const navigate = useNavigate();
     const [loginOngoing, setLoginOngoing] = useState(false)
 
 // Konfiguriere Axios global (optional)
@@ -19,22 +22,22 @@ const LoginPage: FC = () => {
     const handleClicked = async () => {
 
         setLoginOngoing(true)
-        setTimeout(() => {
-            setLoginOngoing(false)
-        }, 500)
         if (email === "" || password === "") {
             toast.error("Please fill in all fields!");
+            setLoginOngoing(false)
             return;
         }
         //check if email is valid with regex
         const emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
         if (!emailRegex.test(email)) {
             toast.error("Please enter a valid email address!");
+            setLoginOngoing(false)
             return;
         }
         //check if password is valid (6 characters)
         if (password.length < 6) {
             toast.error("Please enter a valid password! min 6 characters!");
+            setLoginOngoing(false)
             return;
         }
 
@@ -48,11 +51,17 @@ const LoginPage: FC = () => {
                 toast.success("Please verify your email address to continue!");
                 return;
             }
-            window.location.href = "/app/profile";
-        }catch (e:any) {
+            navigate('/app/profile');
+        } catch (e: any) {
 
             if (e.response.data.status.message === 'Unauthorized - email not confirmed') {
                 toast.error('Please verify your email address to continue!');
+                setLoginOngoing(false)
+                return;
+            }
+            if (e.response.data.status.message === 'Unauthorized - invalid login credentials') {
+                toast.error('Wrong email or password! Please try again!');
+                setLoginOngoing(false)
                 return;
             }
 
@@ -73,7 +82,8 @@ const LoginPage: FC = () => {
                     <Input onChange={handleEmailChange} name="email" placeholder="E-Mail" type="text" value={email}/>
                     <Input onChange={handlePasswordChange} name="password" placeholder="Passwort" type="password"
                            value={password}/>
-                    <Button disabled={loginOngoing} onClick={handleClicked} text={loginOngoing ? "login processing" : "Login / SignUp"}/>
+                    <Button disabled={loginOngoing} onClick={handleClicked}
+                            text={loginOngoing ? "login processing" : "Login / SignUp"}/>
                 </div>
             </div>
         </>
