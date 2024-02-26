@@ -39,6 +39,11 @@ def create_user_blueprint(supabase: Client):
     @user_blueprint.route('/<path:uuid>', methods=['GET'])
     def get_user(uuid: str):
 
+        # get args parameter "UserDetailsOnly"
+        userDetailsOnly = request.args.get('UserDetailsOnly')
+
+        print(userDetailsOnly)
+
         if not re.match(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$', uuid):
             # if uuid is not a valid uuid, return a 404 response
             return createResponse("user not found", 404)
@@ -55,6 +60,10 @@ def create_user_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             return errorHandler(str(e))
+
+        if userDetailsOnly:
+            # if userDetailsOnly is set, return only user details - 200 status code
+            return createResponse("User found", 200, user.data)
 
         try:
             # get posts count from supabase

@@ -20,7 +20,7 @@ const Layout = () => {
         <div>
             <ToasterProvider>
 
-                <main className="container px-3 mt-2 mx-auto pb-32">
+                <main className="container md:w-3/4 mx-auto">
                     <Outlet/>
                 </main>
                 <NavigationBar/>

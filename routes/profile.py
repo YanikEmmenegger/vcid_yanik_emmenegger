@@ -21,7 +21,7 @@ def create_profile_blueprint(supabase: Client):
         if not uuid:
             # if no uuid is found, return a 401 response
             response = createResponse("Unauthorized - no uuid provided", 401)
-            response.set_cookie('refresh_token', '', httponly=True, secure=True, samesite='Strict', max_age=0)
+            response.set_cookie('refresh_token', '', httponly=True, secure=True, samesite=None, max_age=0)
             return response
         # -----------------------------------------------------------------------------------------------
         # Database query to get likes - error handling with try/except
@@ -42,7 +42,7 @@ def create_profile_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
                                        max_age=timedelta(days=30))
 
     @profile_blueprint.route('/bio', methods=['PATCH'])
@@ -78,7 +78,7 @@ def create_profile_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
                                        max_age=timedelta(days=30))
 
     @profile_blueprint.route('/avatar', methods=['PATCH'])
@@ -112,12 +112,12 @@ def create_profile_blueprint(supabase: Client):
             except Exception as e:
                 # if an error occurs, return an error response
                 response = errorHandler(str(e))
-                return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
+                return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
                                            max_age=timedelta(days=30))
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
                                        max_age=timedelta(days=30))
 
     @profile_blueprint.route('/name', methods=['PATCH'])
@@ -153,7 +153,7 @@ def create_profile_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite='Strict',
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
                                        max_age=timedelta(days=30))
 
     return profile_blueprint

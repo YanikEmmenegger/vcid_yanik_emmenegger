@@ -1,25 +1,22 @@
-import {FC, useState} from "react";
+import {FC} from "react";
+import {RiHeart3Fill, RiHeart3Line, RiLoaderFill} from "react-icons/ri";
+import {twMerge} from "tailwind-merge";
 
 interface LikeButtonProps {
     liked: boolean;
-    postId: string;
+    loading: boolean;
+    onclick: () => void;
 }
 
-const LikeButton: FC<LikeButtonProps> = ({liked, postId}) => {
-
-    const [isLiked, setIsLiked] = useState(liked)
-
-    const handleLike = async () => {
-        setIsLiked(!isLiked)
-
-    }
+const LikeButton: FC<LikeButtonProps> = ({liked, loading, onclick}) => {
 
     return (
-        <div>
-            <button onClick={handleLike} className="bg-blue-500 text-white p-2 rounded-md">
-                {isLiked ? "Unlike" : "Like"}
+            <button onClick={onclick} className={twMerge("mr-1", loading ? "animate-spin": "")} disabled={loading} >
+                {loading ? <RiLoaderFill />: <>
+                {liked ? <RiHeart3Fill/> : <RiHeart3Line/>}
+                </>
+                }
             </button>
-        </div>
     );
 }
 

@@ -42,12 +42,11 @@ const LoginPage: FC = () => {
         }
 
         try {
-            const response = await axios.post("http://127.0.0.1:5000/api/auth/login", {
+            const response = await axios.post("/api/auth/login", {
                 email: email,
                 password: password
             });
             if (response.data.status.message === "Registration successful - please verify your account by email") {
-                console.log(response.data);
                 toast.success("Please verify your email address to continue!");
                 return;
             }
@@ -66,7 +65,7 @@ const LoginPage: FC = () => {
             }
 
             toast.error("An error occurred while trying to log in!");
-            console.log(e)
+            setLoginOngoing(false)
             return;
         }
 
@@ -76,7 +75,7 @@ const LoginPage: FC = () => {
 
     return (
         <>
-            <div id="cc-auth-form" className="pt-12 mx-auto lg:w-1/2 w-[90%]">
+            <div className="pt-32 mx-auto lg:w-1/2 w-[90%]">
                 <h1 className="text-center text-3xl mb-3">Login | SignUp</h1>
                 <div className="text-center">
                     <Input onChange={handleEmailChange} name="email" placeholder="E-Mail" type="text" value={email}/>

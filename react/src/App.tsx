@@ -12,7 +12,6 @@
         };
     });
 
-    axios.defaults.withCredentials = true;
 
     // Define your routes here, including the layout and any child routes
     const router = createBrowserRouter([
@@ -22,6 +21,9 @@
             children: childRoutes,
         },
     ]);
+    //set axios defaults withCredentials to true to send cookies and base url
+    axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = 'http://127.0.0.1:5000';
 
 
     function App() {

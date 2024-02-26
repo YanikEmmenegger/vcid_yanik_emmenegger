@@ -1,47 +1,42 @@
-import React, {useEffect, useState} from 'react';
-import toast from "react-hot-toast";
+import {FC, useEffect, useState} from "react";
+import UserHeader from "./userHeader";
+import PostsComponent from "./PostsComponent";
 import axios from "axios";
-import PostsComponent from "../components/PostsComponent";
+import toast from "react-hot-toast";
 
-const HomePage: React.FC = () => {
+interface UserComponentProps {
+    user: any;
+    posts: any[];
+    isOwner?: boolean;
+    next?: any[];
+}
 
-    //poststate
-    const [posts, setPosts] = useState<any>([]);
+const UserComponent: FC<UserComponentProps> = ({user, posts, isOwner, next}) => {
+
+    //post state
+    const [userPosts, setUserPosts] = useState(posts);
     //loading more state
     const [loadingMore, setLoadingMore] = useState(false);
     //next posts link
-    const [nextPosts, setNextPosts] = useState([]);
-
-
-    useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const res = await axios.get('/api/post');
-                console.log(res)
-                setNextPosts(res.data.data.links)
-                setPosts(res.data.data.posts)
-            } catch (e: any) {
-                toast.error("An error occurred while trying to get posts! Try again later!");
-            }
-        }
-
-        getPosts()
-    }, [])
+    const [nextPosts, setNextPosts] = useState(next ? next : []);
 
     const fetchNextPosts = async () => {
+        console.log(next)
         setLoadingMore(true)
         const link = nextPosts[0]
         //delete first element of nextPosts
         setNextPosts(nextPosts.slice(1))
-        try {
+        try{
             const res = await axios.get(link)
-            setPosts([...posts, ...res.data.data.posts])
+            setUserPosts([...userPosts, ...res.data.data.posts])
             setLoadingMore(false)
-        } catch (e: any) {
+        }catch (e: any) {
             toast.error("An error occurred while trying to get more posts! Try again later!");
         }
     }
 
+
+    // Erkennen, ob der Benutzer am unteren Ende der Seite ist
     useEffect(() => {
 
         const handleScroll = () => {
@@ -51,22 +46,23 @@ const HomePage: React.FC = () => {
             const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
             const windowBottom = windowHeight + window.pageYOffset;
             if (windowBottom >= docHeight - 100) { // 100px vor dem Ende der Seite
-                if (!loadingMore && nextPosts.length > 0) {
-                    fetchNextPosts();
-                }
+                if (!loadingMore && nextPosts.length > 0) {fetchNextPosts();}
             }
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [posts]);
+    }, [userPosts]);
 
 
     return (
-        <div className={"mt-3"}>
-            <PostsComponent posts={posts}/>
-        </div>
-    );
-};
+        <>
+            <UserHeader avatar={user.avatars.icon} name={user.name} bio={user.bio}
+                         isOwner={isOwner}/>
+            <PostsComponent posts={userPosts} />
 
-export default HomePage;
+        </>
+    );
+}
+
+export default UserComponent;
