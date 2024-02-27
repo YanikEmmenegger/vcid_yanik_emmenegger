@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import UserHeader from "./userHeader";
 import PostsComponent from "./PostsComponent";
 import axios from "axios";
@@ -58,9 +58,11 @@ const UserComponent: FC<UserComponentProps> = ({user, posts, isOwner, next}) => 
     return (
         <>
             <UserHeader avatar={user.avatars.icon} name={user.name} bio={user.bio}
-                         isOwner={isOwner}/>
-            <PostsComponent posts={userPosts} />
-
+                        isOwner={isOwner}/>
+            <PostsComponent posts={userPosts}/>
+            <div className={"pb-48"}>
+                {nextPosts.length === 0 && <h1 className={"text-xl text-center"}>No more Posts</h1>}
+            </div>
         </>
     );
 }

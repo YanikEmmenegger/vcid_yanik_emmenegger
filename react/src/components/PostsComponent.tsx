@@ -7,7 +7,7 @@ interface UserPostsProps {
 
 const PostsComponent: FC<UserPostsProps> = ({posts}) => {
     return (
-        <div className={"w-full pb-32"}>
+        <div className={"w-full pb-10"}>
             {posts.length > 0 ?
                 <div className={"grid grid-cols-1"}>
                     {posts.map((post) => {
@@ -15,8 +15,7 @@ const PostsComponent: FC<UserPostsProps> = ({posts}) => {
                             <PostItem post={post} key={post.id}/>
                             )
                     })}
-                </div>:
-                <div className={"text-white text-center"}>No posts yet</div>
+                </div>: <div></div>
             }
         </div>
     );

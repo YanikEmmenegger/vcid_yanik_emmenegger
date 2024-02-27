@@ -3,9 +3,15 @@ import {FC, useMemo} from "react";
 import {twMerge} from "tailwind-merge";
 import {routes} from "../../helpers/routes";
 import NavigationButton from "./NavigationButton";
+import CircleButton from "../CircleButton";
+import toast from "react-hot-toast";
+import {useCookies} from "react-cookie";
+import useNewPostModal from "../useNewPostModal";
 
 
 const NavigationBar: FC = () => {
+
+    const newPostModal = useNewPostModal()
 
     const createRoutes = () => {
         return routes.map(({icon: Icon, name, path}) => {
@@ -16,9 +22,19 @@ const NavigationBar: FC = () => {
         })
     }
     const routeElements = useMemo(() => createRoutes(), []);
+    const handleAdd = () => {
+        newPostModal.onOpen()
+    }
+    const [cookies] = useCookies(['uuid']);
+
+
 
     return (
         <>
+            <div
+                className={twMerge(" fixed bottom-24 left-0 w-full transition justify-center flex flex-col", cookies.uuid ? "fixed opacity-100" : "hidden opacity-0")}>
+                <CircleButton onclick={handleAdd} active={cookies.uuid}></CircleButton>
+            </div>
             <div
                 className={twMerge(" fixed bottom-24 left-0 w-full transition justify-center flex flex-col")}>
             </div>

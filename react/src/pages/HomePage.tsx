@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import toast from "react-hot-toast";
 import axios from "axios";
 import PostsComponent from "../components/PostsComponent";
+import IconButton from "../components/IconButton";
+import {CiRedo} from "react-icons/ci";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const HomePage: React.FC = () => {
 
@@ -11,20 +14,21 @@ const HomePage: React.FC = () => {
     const [loadingMore, setLoadingMore] = useState(false);
     //next posts link
     const [nextPosts, setNextPosts] = useState([]);
-
+    //loading state
+    const [loading, setLoading] = useState(true);
+    const getPosts = async () => {
+        setLoading(true)
+        try {
+            const res = await axios.get('/api/post');
+            setNextPosts(res.data.data.links)
+            setPosts(res.data.data.posts)
+            setLoading(false)
+        } catch (e: any) {
+            toast.error("An error occurred while trying to get posts! Try again later!");
+        }
+    }
 
     useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const res = await axios.get('/api/post');
-                console.log(res)
-                setNextPosts(res.data.data.links)
-                setPosts(res.data.data.posts)
-            } catch (e: any) {
-                toast.error("An error occurred while trying to get posts! Try again later!");
-            }
-        }
-
         getPosts()
     }, [])
 
@@ -61,10 +65,25 @@ const HomePage: React.FC = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [posts]);
 
+    const handleRefresh = () => {
+        //cancel all previous requests
+        axios.CancelToken.source().cancel('Operation canceled by the user.');
+        setPosts([])
+        getPosts()
+    }
+
 
     return (
         <div className={"mt-3"}>
+            <div className={"flex"}>
+                <h1 className={"text-2xl mb-3"}>Latest Posts </h1>
+                <IconButton icon={CiRedo} onClick={handleRefresh}/>
+            </div>
             <PostsComponent posts={posts}/>
+            <LoadingIndicator active={loading}/>
+            <div className={"pb-48"}>
+                {nextPosts.length === 0 && <h1 className={"text-xl text-center"}>No more Posts</h1>}
+            </div>
         </div>
     );
 };

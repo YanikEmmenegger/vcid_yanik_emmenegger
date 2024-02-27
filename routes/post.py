@@ -73,7 +73,7 @@ def create_post_blueprint(supabase: Client):
                 return errorHandler(str(e))
         # app supabase query to get posts with likes and comments
         supabase_query = supabase.table('posts').select(
-            '*, likes(id, user_id), comments(comment, created_at, id, user_id)').limit(limit).offset(offset)
+            '*, likes(id, user_id), comments(comment, created_at, id, user_id)').order('created_at', desc=True).limit(limit).offset(offset)
         if uuid:
             # app supabase query to get posts for a specific user
             supabase_query = supabase_query.eq('user_id', uuid)
@@ -346,7 +346,6 @@ def create_post_blueprint(supabase: Client):
             data = {
                 "post": post[0]
             }
-            print(data)
             return createResponse("post updated", 200, data=data, refresh_token=tokenOrError)
         except Exception as e:
             # if an error occurs, return an error response

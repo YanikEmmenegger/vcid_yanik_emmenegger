@@ -9,7 +9,7 @@ interface IconButtonProps {
 
 const IconButton: FC<IconButtonProps> = ({icon:Icon , onClick, fontSize}) => {
     return (
-        <div onClick={onClick} className={"cursor-pointer opacity-80 hover:opacity-100 px-1"} >
+        <div onClick={onClick} className={"cursor-pointer opacity-80 hover:opacity-100 px-1.5"} >
             <Icon  fontSize={fontSize? fontSize : "30px"}/>
         </div>
     );

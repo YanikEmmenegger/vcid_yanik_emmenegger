@@ -67,7 +67,7 @@ def create_user_blueprint(supabase: Client):
 
         try:
             # get posts count from supabase
-            posts_count = supabase.table('posts').select("id", count='exact').eq('user_id', uuid).execute()
+            posts_count = supabase.table('posts').select("id", count='exact').eq('user_id', uuid).order('created_at', desc=True).execute()
         except Exception as e:
             # if an error occurs, return an error response
             return errorHandler(str(e))
@@ -75,7 +75,7 @@ def create_user_blueprint(supabase: Client):
         try:
             # get posts from supabase
             posts = supabase.table('posts').select(
-                '*, likes(id, user_id), comments(comment, created_at, id, user_id)').eq('user_id', uuid).limit(
+                '*, likes(id, user_id), comments(comment, created_at, id, user_id)').eq('user_id', uuid).order('created_at', desc=True).limit(
                 50).execute()
             # if more than 50 posts, create links to next pages
             post_links = []

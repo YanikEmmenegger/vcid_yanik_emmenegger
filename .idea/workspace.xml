@@ -4,15 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="frontend basics with login / logout">
-      <change afterPath="$PROJECT_DIR$/react/src/components/userComponent.tsx" afterDir="false" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="posts">
+      <change afterPath="$PROJECT_DIR$/react/src/components/CircleButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/CommentModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/LikeModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/LoadingIndicator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/ModalProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/NewPostModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/PostModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/ProfileModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/RadioSelector.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/UserItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/UsersComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/useCommentsModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/useLikeModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/useNewPostModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/usePostModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/useProfileModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/pages/UserPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/IconButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/IconButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react/src/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/PostAuthor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/PostAuthor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/PostItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/PostItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/PostsComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/PostsComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/navigation/NavigationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/navigation/NavigationBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/userComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/userComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/userHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/userHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/helpers/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/helpers/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/pages/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/pages/LoginPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react/src/pages/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/pages/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/pages/SearchPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/pages/SearchPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +185,9 @@
       <workItem from="1708790582793" duration="63000" />
       <workItem from="1708800995231" duration="813000" />
       <workItem from="1708879942469" duration="1984000" />
+      <workItem from="1708938305958" duration="5045000" />
+      <workItem from="1708976268144" duration="38000" />
+      <workItem from="1708976316692" duration="4870000" />
     </task>
     <task id="LOCAL-00001" summary="new structur">
       <option name="closed" value="true" />
@@ -230,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708704232403</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="posts">
+      <option name="closed" value="true" />
+      <created>1708962960290</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708962960290</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,10 +293,11 @@
     <MESSAGE value="register" />
     <MESSAGE value="frontend" />
     <MESSAGE value="frontend basics with login / logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend basics with login / logout" />
+    <MESSAGE value="posts" />
+    <option name="LAST_COMMIT_MESSAGE" value="posts" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$vcid_yanik_emmenegger.coverage" NAME="vcid_yanik_emmenegger Coverage Results" MODIFIED="1708076423029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1708934044673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1709040806927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

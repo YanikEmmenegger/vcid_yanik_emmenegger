@@ -6,6 +6,7 @@ import LikeButton from "../components/LikeButton";
 import Button from "../components/Button";
 import {useNavigate} from "react-router-dom";
 import UserComponent from "../components/userComponent";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 
 const ProfilePage: FC = () => {
@@ -54,7 +55,7 @@ const ProfilePage: FC = () => {
         //if loading true render empty div else render profile page
         <>
             {(loading || user === '' || !posts) ?
-                <div className={"mx-auto w-full  content-center text-center"}>loading.....</div> :
+                <div className={"mx-auto w-full  content-center text-center"}><LoadingIndicator active={true} fontSize={"50px"}/></div> :
                 <>
                         <UserComponent next={next} user={user} posts={posts} isOwner={true}/>
                 </>}

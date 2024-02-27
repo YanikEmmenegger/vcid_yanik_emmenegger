@@ -3,6 +3,7 @@ import {CiHome, CiSearch, CiUser} from "react-icons/ci";
 import SearchPage from "../pages/SearchPage";
 import ProfilePage from "../pages/ProfilePage";
 import LoginPage from "../pages/LoginPage";
+import UserPage from "../pages/UserPage";
 
 export const routes = [
     {
@@ -26,7 +27,7 @@ export const routes = [
     {
         "path": "/user/:id",
         "name": "user",
-        "element": <CiSearch/>,
+        "element": <UserPage/>,
     },
     {
         "path": "/post/:id",

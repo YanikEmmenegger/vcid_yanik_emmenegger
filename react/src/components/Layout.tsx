@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {Outlet, useNavigate} from 'react-router-dom';
 import ToasterProvider from "./ToasterProvider";
 import NavigationBar from "./navigation/NavigationBar";
+import ModalProvider from "./ModalProvider";
+import CircleButton from "./CircleButton";
 
 const Layout = () => {
 
@@ -25,6 +27,7 @@ const Layout = () => {
                 </main>
                 <NavigationBar/>
             </ToasterProvider>
+            <ModalProvider/>
         </div>
     );
 };

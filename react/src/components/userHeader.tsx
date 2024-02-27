@@ -6,6 +6,7 @@ import {CiEdit, CiLogout} from "react-icons/ci";
 import {twMerge} from "tailwind-merge";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import useProfileModal from "./useProfileModal";
 
 interface UserHeaderProps {
     avatar: string;
@@ -17,6 +18,7 @@ interface UserHeaderProps {
 const UserHeader: FC<UserHeaderProps> = ({avatar, bio, name, isOwner}) => {
 
     const navigate = useNavigate();
+    const profileModal = useProfileModal();
 
     const handleLogout = async () => {
         try {
@@ -48,9 +50,9 @@ const UserHeader: FC<UserHeaderProps> = ({avatar, bio, name, isOwner}) => {
 
                     </div>
                 </div>
-                <div className={"flex text-center justify-end pr-5 w-[20%]"}>
+                <div className={twMerge("flex text-center justify-end pr-5 w-[20%]", isOwner ? "": "hidden")}>
                     <IconButton icon={CiEdit} onClick={() => {
-                        toast.success("edit")
+                        profileModal.onOpen({})
                     }}/>
                     <IconButton icon={CiLogout} onClick={() => {
                         handleLogout()
