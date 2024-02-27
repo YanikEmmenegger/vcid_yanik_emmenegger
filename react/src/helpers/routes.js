@@ -4,6 +4,7 @@ import SearchPage from "../pages/SearchPage";
 import ProfilePage from "../pages/ProfilePage";
 import LoginPage from "../pages/LoginPage";
 import UserPage from "../pages/UserPage";
+import PostPage from "../pages/PostPage";
 
 export const routes = [
     {
@@ -32,7 +33,7 @@ export const routes = [
     {
         "path": "/post/:id",
         "name": "post",
-        "element": <CiSearch/>,
+        "element": <PostPage/>,
     },
     {
         "path": "/login",

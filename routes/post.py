@@ -73,7 +73,7 @@ def create_post_blueprint(supabase: Client):
                 return errorHandler(str(e))
         # app supabase query to get posts with likes and comments
         supabase_query = supabase.table('posts').select(
-            '*, likes(id, user_id), comments(comment, created_at, id, user_id)').order('created_at', desc=True).limit(limit).offset(offset)
+            '*, likes(id, user_id), comments(comment, created_at, id, user_id, post_id)').order('created_at', desc=True).limit(limit).offset(offset)
         if uuid:
             # app supabase query to get posts for a specific user
             supabase_query = supabase_query.eq('user_id', uuid)
@@ -132,11 +132,10 @@ def create_post_blueprint(supabase: Client):
         # -----------------------------------------------------------------------------------------------
         # Database querys to get post and posts - error handling with try/except
         # -----------------------------------------------------------------------------------------------
-        print(post_id)
         try:
             # get post from supabase
             post = supabase.table('posts').select(
-                '*, likes(id, user_id), comments(comment, created_at, id, user_id)', count='exact').eq('id',
+                '*, likes(id, user_id), comments(comment, created_at, id, user_id, post_id)', count='exact').eq('id',
                                                                                                        post_id).execute()
             if post.count == 0:
                 # if post is not found, return a 404 response
@@ -167,7 +166,6 @@ def create_post_blueprint(supabase: Client):
             return createResponse("post not found", 404, refresh_token=tokenOrError)
         try:
             deletion = supabase.table('posts').delete().eq('id', post_id).execute()
-            print(deletion)
             if len(deletion.data) == 0:
                 # if post is not found, return a 404 response
                 return createResponse("post not found, already deleted or action not allowed for user", 404,
@@ -210,12 +208,12 @@ def create_post_blueprint(supabase: Client):
                             'uuid')).execute()
                         likesOrError = getAllLikesForPost(post_id)
                         # check if likes is array or error response
-                        print(likesOrError)
+
                         if isinstance(likesOrError, list) or likesOrError == []:
                             data = {
                                 "likes": likesOrError
                             }
-                            print(data)
+
                             return createResponse("post unliked", 200, data=data, refresh_token=tokenOrError)
                         return likesOrError.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True,
                                                        samesite=None,

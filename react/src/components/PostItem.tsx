@@ -61,7 +61,11 @@ const PostItem: FC<PostItemProps> = ({post}) => {
     }
 
     const handleShare = () => {
-        toast.error("This feature is not available yet!")
+
+        const shareLink = window.location.origin + "/app/post/" + post.id
+        //copy to clipboard
+        navigator.clipboard.writeText(shareLink)
+        toast.success("Link copied to clipboard! Share it with your friends!")
     }
 
 
@@ -93,7 +97,7 @@ const PostItem: FC<PostItemProps> = ({post}) => {
                 const res = await axios.get('/api/user/' + post.user_id + '?UserDetailsOnly=true');
                 const user = {
                     'username': res.data.data.name.toUpperCase(),
-                    'avatar': res.data.data.avatars.icon,
+                    'avatar': res.data.data.avatars?.icon || '👤',
                     'link': '/app/user/' + res.data.data.id
                 }
                 setUser(user)
@@ -104,9 +108,10 @@ const PostItem: FC<PostItemProps> = ({post}) => {
         getUser()
     }, [post]);
 
+
     return (
         <div className={"w-full p-3 bg-neutral-800 rounded-lg h-auto mb-5"}>
-            <PostAuthor edited={post.edited_at} user={user}/>
+            <PostAuthor edited={post.updated_at} user={user}/>
             <div className={"w-full py-3"}>
                 <p className={"text-[18pt]"}>{post.post}</p>
             </div>
@@ -114,15 +119,17 @@ const PostItem: FC<PostItemProps> = ({post}) => {
                 <div className={"w-full flex items-center "}>
                     <div className={"flex p-1"}>
                         <LikeButton onclick={handleLike} loading={loadingLike} liked={userHasLiked}/>
-                        <h1 className={"cursor-pointer"}
+                        <h1 className={"cursor-pointer underline"}
                             onClick={() => likeModal.onOpen(likes)}>{likes.length} Likes</h1>
                     </div>
-                    <div onClick={() => commentModal.onOpen(comments)} className={"flex cursor-pointer p-1"}>
+                    <div onClick={() => commentModal.onOpen(comments)} className={"underline flex cursor-pointer p-1"}>
                         <IconButton fontSize={"20px"} icon={CiReceipt} onClick={() => {
                         }}/>
                         <h1>{comments.length} comments</h1>
                     </div>
-                    <IconButton fontSize={"20px"} icon={CiShare1} onClick={handleShare}/><p>Share</p>
+                    <div className={"flex items-center cursor-pointer"} onClick={handleShare}>
+                    <IconButton fontSize={"20px"} icon={CiShare1} onClick={()=>{}}/><p>Share</p>
+                    </div>
 
                 </div>
                 <div>

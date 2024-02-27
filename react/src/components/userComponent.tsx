@@ -21,7 +21,6 @@ const UserComponent: FC<UserComponentProps> = ({user, posts, isOwner, next}) => 
     const [nextPosts, setNextPosts] = useState(next ? next : []);
 
     const fetchNextPosts = async () => {
-        console.log(next)
         setLoadingMore(true)
         const link = nextPosts[0]
         //delete first element of nextPosts
@@ -57,7 +56,7 @@ const UserComponent: FC<UserComponentProps> = ({user, posts, isOwner, next}) => 
 
     return (
         <>
-            <UserHeader avatar={user.avatars.icon} name={user.name} bio={user.bio}
+            <UserHeader avatar={user.avatars?.icon || "👤"} name={user.name} bio={user.bio}
                         isOwner={isOwner}/>
             <PostsComponent posts={userPosts}/>
             <div className={"pb-48"}>

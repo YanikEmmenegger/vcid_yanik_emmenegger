@@ -12,24 +12,22 @@ interface PostAuthorProps {
 }
 
 const PostAuthor: FC<PostAuthorProps> = ({user, edited}) => {
-
-
-
     return (
 
-        <div className={"flex flex-row pb-2 mb-2 border-b-2 border-b-neutral-700"}>
+        <div className={"flex items-center flex-row pb-2 mb-2 border-b-2 border-b-neutral-700"}>
             {user.username === '' ? <LoadingIndicator fontSize={"25px"} active={true}/> : <>
-            <Link to={user.link}>
+                <Link to={user.link}>
                 <span className={"text-[10pt]"}>
                     {user.avatar}
                 </span>
-                <span className={"text-[10pt] ml-2"}>
+                    <span className={"text-[10pt] ml-2"}>
                     {user.username === '' ? <LoadingIndicator fontSize={"10px"} active={true}/> : user.username}
                 </span>
-                <span className={"text-[10pt] ml-2"}>
-                {edited ? "edited" : ""}
+
+                </Link>
+                <span className={"text-[10pt] ml-1 opacity-50"}>
+                {edited ? "(edited)" : ""}
                 </span>
-            </Link>
             </>}
 
         </div>

@@ -24,7 +24,7 @@ const ProfilePage: FC = () => {
 
 
     useEffect(() => {
-        console.log(cookies.uuid)
+
         if (cookies.uuid === undefined || cookies.uuid === "") {
             navigate("/app/login")
 

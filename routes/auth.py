@@ -39,7 +39,7 @@ def create_auth_blueprint(supabase: Client):
                     user = supabase.table('users').select('bio, email, id, name, avatars(icon)').eq('email',
                                                                                                     email).execute().data
                     # if user does not have a name, return a response to update profile
-                    print(user[0]['name'])
+
                     if user[0]['name'] is None:
                         response = createResponse("Please update your profile", 200, user,
                                                   session.session.refresh_token)

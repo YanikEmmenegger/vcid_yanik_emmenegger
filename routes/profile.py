@@ -56,7 +56,7 @@ def create_profile_blueprint(supabase: Client):
         bio = request.json.get('bio')
 
         # check if bio is not empty
-        print(bio)
+
         if not bio:
             # if bio is empty, return a 400 response
             return createResponse("No bio provided", 400, refresh_token=tokenOrError)
@@ -91,14 +91,13 @@ def create_profile_blueprint(supabase: Client):
         # get bio from request body
         avatar_id = request.json.get('avatar_id')
         # check if avatar_id is not empty
-        print(avatar_id)
         if not avatar_id:
             # if avatar_id is empty, return a 400 response
             return createResponse("No avatar_id provided", 400, refresh_token=tokenOrError)
         # check if avatar_id exists
         try:
             avatar = supabase.table('avatars').select('id').eq('id', avatar_id).execute()
-            print(avatar.data)
+
             if not avatar.data:
                 # if avatar_id does not exist, return a 400 response
                 return createResponse("Avatar not found", 404, refresh_token=tokenOrError)
@@ -131,7 +130,7 @@ def create_profile_blueprint(supabase: Client):
         name = request.json.get('name')
 
         # check if name is not empty
-        print(name)
+
         if not name:
             # if name is empty, return a 400 response
             return createResponse("No name provided", 400, refresh_token=tokenOrError)
