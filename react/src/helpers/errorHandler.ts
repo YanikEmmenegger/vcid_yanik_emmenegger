@@ -24,8 +24,11 @@ const errorHandler = (error: any) => {
         toast.error("Ressource not found!")
     }
 
+    console.log(error)
+    const errorCode =  error.code || error.response.status
 
-    switch (error.response.status) {
+
+    switch (errorCode) {
         case 307:
             error307()
             break;

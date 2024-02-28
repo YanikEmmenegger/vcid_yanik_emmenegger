@@ -21,9 +21,7 @@ const LoginPage: FC = () => {
                await axios.get('api/auth/logout')
            }
            catch (e: any) {
-               if (e.response.status !== 400) {
-                   errorHandler(e)
-               }
+               console.log(e)
            }
        }
        logout()

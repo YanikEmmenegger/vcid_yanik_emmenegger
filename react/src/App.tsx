@@ -23,7 +23,7 @@
     ]);
     //set axios defaults withCredentials to true to send cookies and base url
     axios.defaults.withCredentials = true;
-    axios.defaults.baseURL = 'http://127.0.0.1:5000';
+    axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL
 
 
     function App() {
