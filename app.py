@@ -4,7 +4,6 @@ from flask_cors import CORS
 from routes.auth import create_auth_blueprint
 from supabase import create_client, Client
 from dotenv import load_dotenv
-# Importiere zusätzliche benötigte Module
 from routes.avatar import create_avatar_blueprint
 from routes.post import create_post_blueprint
 from routes.profile import create_profile_blueprint
