@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="version 1.0 (include build)">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,6 +164,8 @@
       <workItem from="1709131085791" duration="895000" />
       <workItem from="1709131986416" duration="1244000" />
       <workItem from="1709152553944" duration="604000" />
+      <workItem from="1709154023412" duration="19000" />
+      <workItem from="1709154267446" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="new structur">
       <option name="closed" value="true" />
@@ -324,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709132473160</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="version 1.0 (include build)">
+      <option name="closed" value="true" />
+      <created>1709154035535</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1709154035535</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
