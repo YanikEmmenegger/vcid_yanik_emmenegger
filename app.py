@@ -17,9 +17,9 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 app = Flask(__name__, static_url_path='', static_folder='react/build')
 # Konfiguriere CORS für Anfragen von localhost:3000
-CORS(app, supports_credentials=True, resources={
-    r"/api/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000", 'http://127.0.0.1:5000']}
-})
+#CORS(app, supports_credentials=True, resources={
+#    r"/api/*": {"origins": ["http://127.0.0.1:3000", 'http://127.0.0.1:5000']}
+#})
 
 auth_blueprint = create_auth_blueprint(supabase)
 app.register_blueprint(auth_blueprint, url_prefix='/api/auth')
