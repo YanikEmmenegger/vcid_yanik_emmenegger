@@ -8,6 +8,7 @@ import IconButton from "./IconButton";
 import toast from "react-hot-toast";
 import {BiSend} from "react-icons/bi";
 import axios from "axios";
+import postModal from "./PostModal";
 
 
 const CommentModal = () => {
@@ -22,10 +23,8 @@ const CommentModal = () => {
    const [comments, setComments] = useState(commentModal.Comments)
     useEffect(() => {
         //change order of comments
-        const newOrder =commentModal.Comments.sort((a: any, b: any) => {
-            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        })
-        setComments(newOrder)
+
+        setComments(commentModal.Comments)
         setNewComment("")
     }, [commentModal.Comments]);
 
@@ -35,10 +34,21 @@ const CommentModal = () => {
     const createComment = async () => {
         if (newComment === "") {
             toast.error("Comment cannot be empty!")
-            console.log(comments)
             return
         }
-       toast.success("Comment added successfully!")
+        await toast.promise(
+            axios.post("/api/post/" + commentModal.postId + "/comment", {
+                comment: newComment
+            }).then(res => {
+                setComments([...comments, res.data.data.comment])
+                setNewComment("")
+            }),
+            {
+                loading: 'Creating comment...',
+                success: 'Comment added successfully!',
+                error: 'An error occurred while trying to add comment! Try again later!',
+            }
+        )
     }
 
     return (

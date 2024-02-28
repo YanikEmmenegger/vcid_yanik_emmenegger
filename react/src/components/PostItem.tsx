@@ -122,7 +122,7 @@ const PostItem: FC<PostItemProps> = ({post}) => {
                         <h1 className={"cursor-pointer underline"}
                             onClick={() => likeModal.onOpen(likes)}>{likes.length} Likes</h1>
                     </div>
-                    <div onClick={() => commentModal.onOpen(comments)} className={"underline flex cursor-pointer p-1"}>
+                    <div onClick={() => commentModal.onOpen(comments, post.id)} className={"underline flex cursor-pointer p-1"}>
                         <IconButton fontSize={"20px"} icon={CiReceipt} onClick={() => {
                         }}/>
                         <h1>{comments.length} comments</h1>
