@@ -7,6 +7,7 @@ import {twMerge} from "tailwind-merge";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import useProfileModal from "./useProfileModal";
+import errorHandler from "../helpers/errorHandler";
 
 interface UserHeaderProps {
     avatar: string;
@@ -29,12 +30,7 @@ const UserHeader: FC<UserHeaderProps> = ({avatar, bio, name, isOwner}) => {
                 return;
             }
         } catch (e: any) {
-            if (e.response.status === 400) {
-                toast.success("You have successfully logged out!");
-                navigate("/app/login");
-                return;
-            }
-            toast.error("An error occurred while trying to log out! Try again later!");
+           errorHandler(e)
         }
     }
 
@@ -52,7 +48,7 @@ const UserHeader: FC<UserHeaderProps> = ({avatar, bio, name, isOwner}) => {
                 </div>
                 <div className={twMerge("flex text-center justify-end pr-5 w-[20%]", isOwner ? "": "hidden")}>
                     <IconButton icon={CiEdit} onClick={() => {
-                        profileModal.onOpen({})
+                        profileModal.onOpen({avatar: avatar, name: name, bio:bio})
                     }}/>
                     <IconButton icon={CiLogout} onClick={() => {
                         handleLogout()

@@ -1,5 +1,4 @@
 import Modal from "./Modal";
-import useLikeModal from "./useLikeModal";
 import useCommentsModal from "./useCommentsModal";
 import {useEffect, useState} from "react";
 import CommentItem from "./CommentItem";
@@ -8,7 +7,7 @@ import IconButton from "./IconButton";
 import toast from "react-hot-toast";
 import {BiSend} from "react-icons/bi";
 import axios from "axios";
-import postModal from "./PostModal";
+import errorHandler from "../helpers/errorHandler";
 
 
 const CommentModal = () => {
@@ -20,7 +19,7 @@ const CommentModal = () => {
         }
     }
 
-   const [comments, setComments] = useState(commentModal.Comments)
+    const [comments, setComments] = useState(commentModal.Comments)
     useEffect(() => {
         //change order of comments
 
@@ -40,8 +39,11 @@ const CommentModal = () => {
             axios.post("/api/post/" + commentModal.postId + "/comment", {
                 comment: newComment
             }).then(res => {
-                setComments([...comments, res.data.data.comment])
+                const allComments = [...comments, res.data.data.comment]
+                commentModal.setComments!(allComments)
+                setComments(allComments)
                 setNewComment("")
+
             }),
             {
                 loading: 'Creating comment...',
@@ -50,6 +52,27 @@ const CommentModal = () => {
             }
         )
     }
+    const deleteComment = async (commentId: string) => {
+        const url = "/api/post/" + commentModal.postId + "/comment?id=" + commentId
+        try {
+            await toast.promise(
+                axios.delete(url).then(res => {
+                    const allComments = comments.filter((comment: any) => comment.id !== commentId)
+                    commentModal.setComments!(allComments)
+                    setComments(allComments)
+                }),
+                {
+                    loading: 'Deleting comment...',
+                    success: 'Comment deleted successfully!',
+                    error: 'An error occurred while trying to delete comment! Try again later!',
+                }
+            )
+        } catch (e: any) {
+            errorHandler(e)
+        }
+    }
+
+
 
     return (
         <Modal isOpen={commentModal.isOpen} onChange={onChange} title="Comments"
@@ -58,12 +81,14 @@ const CommentModal = () => {
                 {comments.length === 0 && <div className={"text-center"}>No comments yet</div>}
                 <div className={"max-h-96 overflow-y-auto"}>
                     {comments.length > 0 && comments.map((comment: any) => {
-                        return <CommentItem key={comment.id} comment={comment}/>
+                        return <CommentItem key={comment.id} deleteComment={() => deleteComment(comment.id)}
+                                            comment={comment}/>
                     })
                     }
                 </div>
                 <div className={"flex items-center"}>
-                    <Input className={"bg-amber-600"} placeholder={"Comment"} type={"text"} name={"comment"} value={newComment} onChange={handleCommentChange}/>
+                    <Input className={"bg-amber-600"} placeholder={"Comment"} type={"text"} name={"comment"}
+                           value={newComment} onChange={handleCommentChange}/>
                     <IconButton icon={BiSend} onClick={createComment}/>
                 </div>
 

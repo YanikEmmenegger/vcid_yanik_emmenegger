@@ -19,7 +19,7 @@ const Modal: FC<ModalProps> = ({isOpen, onChange, title, description, children})
                 <Dialog.Content
                     className="fixed drop-shadow-md top-[50%] left-[50%] w-full h-full translate-x-[-50%] translate-y-[-50%] p-[10px] focus:outline-none">
                     <div
-                        className={" rounded-lg mt-14 flex mx-auto md:w-3/4 bg-amber-500 pb-20 w-full flex-col items-center"}>
+                        className={" rounded-lg mt-[2.5vh] flex max-h-[95vh] mx-auto md:w-3/4 bg-amber-500 pb-20 w-full flex-col items-center"}>
                         <div
                             className={"px-5 py-5 flex w-[96%] justify-between items-center border-b-2 border-b-neutral-600"}>
                             <div className={" w-full items-start"}>

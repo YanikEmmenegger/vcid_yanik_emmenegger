@@ -3,6 +3,7 @@ import UserHeader from "./userHeader";
 import PostsComponent from "./PostsComponent";
 import axios from "axios";
 import toast from "react-hot-toast";
+import errorHandler from "../helpers/errorHandler";
 
 interface UserComponentProps {
     user: any;
@@ -25,12 +26,12 @@ const UserComponent: FC<UserComponentProps> = ({user, posts, isOwner, next}) => 
         const link = nextPosts[0]
         //delete first element of nextPosts
         setNextPosts(nextPosts.slice(1))
-        try{
+        try {
             const res = await axios.get(link)
             setUserPosts([...userPosts, ...res.data.data.posts])
             setLoadingMore(false)
-        }catch (e: any) {
-            toast.error("An error occurred while trying to get more posts! Try again later!");
+        } catch (e: any) {
+            errorHandler(e)
         }
     }
 
@@ -45,7 +46,9 @@ const UserComponent: FC<UserComponentProps> = ({user, posts, isOwner, next}) => 
             const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
             const windowBottom = windowHeight + window.pageYOffset;
             if (windowBottom >= docHeight - 100) { // 100px vor dem Ende der Seite
-                if (!loadingMore && nextPosts.length > 0) {fetchNextPosts();}
+                if (!loadingMore && nextPosts.length > 0) {
+                    fetchNextPosts();
+                }
             }
         };
 

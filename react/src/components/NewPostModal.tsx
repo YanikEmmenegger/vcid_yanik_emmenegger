@@ -56,7 +56,7 @@ const NewPostModal = () => {
                 <div className={"flex flex-col gap-6 w-full"}>
                     <div className={"flex flex-col gap-6 w-full"}>
                             <textarea value={post} onChange={handlePostChange} name="post-content" id="post-content"
-                                      className={"outline-none bg-neutral-800 w-full max-h-80 min-h-40 mx-1 p-3 rounded-lg"}/>
+                                      className={"outline-none bg-amber-600 w-full max-h-80 min-h-40 mx-1 p-3 rounded-lg"}/>
                     </div>
                     <div className={"flex flex-col w-full"}>
                         <Button onClick={createPost} text={"Create"} disabled={processOngoing}

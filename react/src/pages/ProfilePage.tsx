@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import {useNavigate} from "react-router-dom";
 import UserComponent from "../components/userComponent";
 import LoadingIndicator from "../components/LoadingIndicator";
+import errorHandler from "../helpers/errorHandler";
 
 
 const ProfilePage: FC = () => {
@@ -42,7 +43,7 @@ const ProfilePage: FC = () => {
                     setPosts(res.data.data.posts.posts)
                     setNext(res.data.data.posts.links)
                 } catch (e: any) {
-                    toast.error("An error occurred while trying to get user data! Try again later!");
+                    errorHandler(e)
                 }
             }
 

@@ -3,10 +3,9 @@ import Input from "../components/Input";
 import LoadingIndicator from "../components/LoadingIndicator";
 import PostsComponent from "../components/PostsComponent";
 import axios from "axios";
-import toast from "react-hot-toast";
 import RadioSelector from "../components/RadioSelector";
 import UsersComponent from "../components/UsersComponent";
-import usersComponent from "../components/UsersComponent";
+import errorHandler from "../helpers/errorHandler";
 
 const SearchPage: React.FC = () => {
 
@@ -27,7 +26,7 @@ const SearchPage: React.FC = () => {
             setUsers(response.data.data.users);
             setLoading(false);
         } catch (e) {
-            toast.error("An error occurred while trying to get users! Try again later!");
+            errorHandler(e)
             setLoading(false);
         }
     }, [search, setUsers, setLoading]); // Abhängigkeiten
@@ -39,7 +38,7 @@ const SearchPage: React.FC = () => {
             setPosts(response.data.data.posts);
             setLoading(false);
         } catch (e) {
-            toast.error("An error occurred while trying to get posts! Try again later!");
+            errorHandler(e)
             setLoading(false);
         }
     }, [search, setPosts, setLoading]); // Abhängigkeiten
@@ -51,10 +50,12 @@ const SearchPage: React.FC = () => {
     const loadContent = () => {
 
         if (searchType === "posts") {
-            return posts.length > 0 ? <PostsComponent posts={posts}/> : <p className={"text-center"}>No results found</p>
+            return posts.length > 0 ? <PostsComponent posts={posts}/> :
+                <p className={"text-center"}>No results found</p>
         }
         if (searchType === "users") {
-            return users.length > 0 ? <UsersComponent users={users}/> : <p className={"text-center"}>No results found</p>
+            return users.length > 0 ? <UsersComponent users={users}/> :
+                <p className={"text-center"}>No results found</p>
         }
     }
 

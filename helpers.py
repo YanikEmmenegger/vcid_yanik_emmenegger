@@ -16,6 +16,7 @@ def errorHandler(e):
         'Invalid Refresh Token: Refresh Token Not Found': createResponse("Unauthorized - invalid token", 401),
         'Invalid Refresh Token: Refresh Token Expired': createResponse("Unauthorized - invalid token", 401),
         'Email not confirmed': createResponse("Unauthorized - email not confirmed", 401),
+        'JWT expired': createResponse("Unauthorized - token expired", 307),
     }
     # return error response, return 500 if error is not found in switcher (unexpected error)
     return switcher.get(e, createResponse("Unexpected Errors", 500))

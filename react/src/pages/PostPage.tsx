@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import LoadingIndicator from "../components/LoadingIndicator";
 import {Simulate} from "react-dom/test-utils";
 import load = Simulate.load;
+import errorHandler from "../helpers/errorHandler";
 
 
 const PostPage: FC = () => {
@@ -28,7 +29,7 @@ const PostPage: FC = () => {
                 setError404(true)
                 return
             }
-            toast.error("An error occurred while trying to get post data! Try again later!");
+            errorHandler(e)
         }
     }
 

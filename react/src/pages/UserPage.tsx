@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import LoadingIndicator from "../components/LoadingIndicator";
 import UserComponent from "../components/userComponent";
+import errorHandler from '../helpers/errorHandler';
 
 const UserPage = () => {
 
@@ -33,7 +34,7 @@ const UserPage = () => {
                     setError(true)
                     return
                 }
-                toast.error("An error occurred while trying to get user data! Try again later!");
+                errorHandler(e)
             }
         }
 

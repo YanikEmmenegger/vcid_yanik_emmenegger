@@ -1,9 +1,10 @@
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import toast from "react-hot-toast";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import errorHandler from "../helpers/errorHandler";
 
 
 const LoginPage: FC = () => {
@@ -13,6 +14,20 @@ const LoginPage: FC = () => {
 // Konfiguriere Axios global (optional)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+       const logout = async () => {
+           try {
+               await axios.get('api/auth/logout')
+           }
+           catch (e: any) {
+               if (e.response.status !== 400) {
+                   errorHandler(e)
+               }
+           }
+       }
+       logout()
+    }, [])
 
     // Wrapper-Funktion für die E-Mail
     const handleEmailChange = (e: any) => setEmail(e.target.value);
@@ -64,7 +79,7 @@ const LoginPage: FC = () => {
                 return;
             }
 
-            toast.error("An error occurred while trying to log in!");
+            errorHandler(e)
             setLoginOngoing(false)
             return;
         }

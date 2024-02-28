@@ -2,14 +2,14 @@ import {create} from "zustand";
 
 interface ProfileModalStore {
     isOpen: boolean,
-    Profile?: {},
+    Profile: any,
     onOpen: (Profile: any) => void,
     onClose: () => void
 }
 
 const useProfileModal = create<ProfileModalStore>((set) => ({
     isOpen: false,
-    Profile: {},
+    Profile: {} as any,
     onOpen: (newProfile) => {
         set({isOpen: true, Profile: newProfile})
     },

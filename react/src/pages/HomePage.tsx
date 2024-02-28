@@ -5,6 +5,7 @@ import PostsComponent from "../components/PostsComponent";
 import IconButton from "../components/IconButton";
 import {CiRedo} from "react-icons/ci";
 import LoadingIndicator from "../components/LoadingIndicator";
+import errorHandler from "../helpers/errorHandler";
 
 const HomePage: React.FC = () => {
 
@@ -24,7 +25,7 @@ const HomePage: React.FC = () => {
             setPosts(res.data.data.posts)
             setLoading(false)
         } catch (e: any) {
-            toast.error("An error occurred while trying to get posts! Try again later!");
+            errorHandler(e)
         }
     }
 
@@ -42,7 +43,7 @@ const HomePage: React.FC = () => {
             setPosts([...posts, ...res.data.data.posts])
             setLoadingMore(false)
         } catch (e: any) {
-            toast.error("An error occurred while trying to get more posts! Try again later!");
+            errorHandler(e)
         }
     }
 

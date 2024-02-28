@@ -41,9 +41,6 @@ def create_user_blueprint(supabase: Client):
 
         # get args parameter "UserDetailsOnly"
         userDetailsOnly = request.args.get('UserDetailsOnly')
-
-        print(userDetailsOnly)
-
         if not re.match(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$', uuid):
             # if uuid is not a valid uuid, return a 404 response
             return createResponse("user not found", 404)

@@ -9,6 +9,33 @@ from supabase import Client
 def create_post_blueprint(supabase: Client):
     post_blueprint = Blueprint('post', __name__)
 
+    @post_blueprint.route('<path:post_id>/comment', methods=['DELETE'])
+    def delete_comment(post_id):
+        print("commmmmmmmmment")
+        # check if profile is logged in
+        tokenOrError = checkSession(request, supabase)
+        if not isinstance(tokenOrError, str):
+            # if tokenOrError is not a string, it is a response object (profile not logged in, or error occurred)
+            return tokenOrError
+        # get comment_id from request args
+        comment_id = request.args.get('id')
+        # check if comment_id is a valid number
+        if not re.match(r'^[0-9a-f-]+$', comment_id):
+            # if comment_id is not a valid number, return a 404 response
+            return createResponse("comment not found", 404, refresh_token=tokenOrError)
+        try:
+            deletion = supabase.table('comments').delete().eq('id', comment_id).execute().data
+            if len(deletion) == 0:
+                # if comment is not found, return a 404 response
+                return createResponse("comment not found, already deleted or action not allowed for user", 404,
+                                      refresh_token=tokenOrError)
+            return createResponse("comment deleted", 200, refresh_token=tokenOrError)
+        except Exception as e:
+            # if an error occurs, return an error response
+            response = errorHandler(str(e))
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+                                       max_age=timedelta(days=30))
+
     @post_blueprint.route('/', methods=['POST'])
     def create_post():
         # check if profile is logged in
@@ -73,7 +100,9 @@ def create_post_blueprint(supabase: Client):
                 return errorHandler(str(e))
         # app supabase query to get posts with likes and comments
         supabase_query = supabase.table('posts').select(
-            '*, likes(id, user_id), comments(comment, created_at, id, user_id, post_id)').order('created_at', desc=True).limit(limit).offset(offset)
+            '*, likes(id, user_id), comments(comment, created_at, id, user_id, post_id)').order('created_at',
+                                                                                                desc=True).limit(
+            limit).offset(offset)
         if uuid:
             # app supabase query to get posts for a specific user
             supabase_query = supabase_query.eq('user_id', uuid)
@@ -136,7 +165,7 @@ def create_post_blueprint(supabase: Client):
             # get post from supabase
             post = supabase.table('posts').select(
                 '*, likes(id, user_id), comments(comment, created_at, id, user_id, post_id)', count='exact').eq('id',
-                                                                                                       post_id).execute()
+                                                                                                                post_id).execute()
             if post.count == 0:
                 # if post is not found, return a 404 response
                 return createResponse("post not found", 404)
@@ -281,33 +310,6 @@ def create_post_blueprint(supabase: Client):
             }
             # if comment is created, return a 201 response
             return createResponse("comment created", 201, data=data, refresh_token=tokenOrError)
-        except Exception as e:
-            # if an error occurs, return an error response
-            response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
-                                       max_age=timedelta(days=30))
-
-    @post_blueprint.route('/<path:post_id>/comment', methods=['DELETE'])
-    def delete_comment(post_id):
-
-        # check if profile is logged in
-        tokenOrError = checkSession(request, supabase)
-        if not isinstance(tokenOrError, str):
-            # if tokenOrError is not a string, it is a response object (profile not logged in, or error occurred)
-            return tokenOrError
-        # get comment_id from request args
-        comment_id = request.args.get('comment_id')
-        # check if comment_id is a valid number
-        if not re.match(r'^[0-9a-f-]+$', comment_id):
-            # if comment_id is not a valid number, return a 404 response
-            return createResponse("comment not found", 404, refresh_token=tokenOrError)
-        try:
-            deletion = supabase.table('comments').delete().eq('id', comment_id).execute().data
-            if len(deletion) == 0:
-                # if comment is not found, return a 404 response
-                return createResponse("comment not found, already deleted or action not allowed for user", 404,
-                                      refresh_token=tokenOrError)
-            return createResponse("comment deleted", 200, refresh_token=tokenOrError)
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
