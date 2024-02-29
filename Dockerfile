@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install gunicorn
 
 # Starten Sie die App mit Gunicorn. Passen Sie die Anzahl der Worker und Threads nach Bedarf an.
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:80", "app:app"]
