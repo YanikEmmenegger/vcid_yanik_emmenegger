@@ -21,19 +21,21 @@ const router = createBrowserRouter([
         children: childRoutes,
     },
 ]);
-//set axios defaults withCredentials to true to send cookies and base url
-axios.defaults.withCredentials = true;
-if (process.env.REACT_APP_API_BASE_URL) {
-    axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL
-} else {
-    axios.defaults.baseURL = "https://"+window.location.host
-}
-console.debug(axios.defaults.baseURL)
 
 
-
-    function App() {
-        return <RouterProvider router={router}/>;
+function App() {
+    //set axios defaults withCredentials to true to send cookies and base url
+    axios.defaults.withCredentials = true;
+    if (process.env.REACT_APP_API_BASE_URL) {
+        axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL
+    } else {
+        axios.defaults.baseURL = "https://" + window.location.host
     }
+    console.debug(axios.defaults.baseURL)
+//REsultat ist https://vcid.yanik.pro -> Fehlermeldung: The page at 'https://vcid.yanik.pro/' was loaded over HTTPS, but requested an insecure resource 'http://vcid.yanik.pro/api/auth/logout'. This request has been blocked; the content must be served over HTTPS.
+
+
+    return <RouterProvider router={router}/>;
+}
 
 export default App;
