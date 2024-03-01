@@ -27,6 +27,7 @@ if (process.env.REACT_APP_API_BASE_URL) {
     axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL
 } else {
     axios.defaults.baseURL = "https://"+window.location.host
+    console.log("No base url found in .env file! Using window.location.host"+ window.location.host)
 }
 
 
