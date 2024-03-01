@@ -11,7 +11,6 @@ def create_post_blueprint(supabase: Client, conf: dict):
 
     @post_blueprint.route('<path:post_id>/comment', methods=['DELETE'])
     def delete_comment(post_id):
-        print("commmmmmmmmment")
         # check if profile is logged in
         tokenOrError = checkSession(request, supabase)
         if not isinstance(tokenOrError, str):
