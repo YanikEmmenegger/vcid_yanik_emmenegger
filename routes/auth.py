@@ -6,11 +6,12 @@ from supabase import Client
 from helpers import createResponse, errorHandler
 
 
-def create_auth_blueprint(supabase: Client):
+def create_auth_blueprint(supabase: Client, conf: dict):
     auth_blueprint = Blueprint('auth', __name__)
 
     @auth_blueprint.route('/login', methods=['POST'])
     def login():
+
         # get email and password from request
         email = request.json.get('email')
         password = request.json.get('password')
@@ -47,7 +48,7 @@ def create_auth_blueprint(supabase: Client):
                         # create response object with user data and refresh token
                         response = createResponse("Login successful", 200, user, session.session.refresh_token)
                     # set uuid in cookies
-                    response.set_cookie('uuid', user[0]['id'], httponly=False, secure=True, samesite=None,
+                    response.set_cookie('uuid', user[0]['id'], httponly=False, secure=conf['secure'], samesite=conf['samesite'],
                                         max_age=timedelta(days=30))
                     # return response
                     return response
@@ -75,8 +76,8 @@ def create_auth_blueprint(supabase: Client):
             # create response object
             response = createResponse("Logout successful", 200)
             # set refresh token and uuid as cookies with max_age=0 to delete them
-            response.set_cookie('refresh_token', '', httponly=True, secure=True, samesite=None, max_age=0)
-            response.set_cookie('uuid', '', httponly=False, secure=True, samesite=None, max_age=0)
+            response.set_cookie('refresh_token', '', httponly=True, secure=conf['secure'], samesite=conf['samesite'], max_age=0)
+            response.set_cookie('uuid', '', httponly=False, secure=conf['secure'], samesite=conf['samesite'], max_age=0)
             # return response
             return response
         except Exception as e:

@@ -16,21 +16,35 @@ SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 app = Flask(__name__, static_url_path='', static_folder='react/build')
-# Konfiguriere CORS für Anfragen von localhost:3000
-#CORS(app, supports_credentials=True, resources={
-#    r"/api/*": {"origins": ["http://127.0.0.1:3000", 'http://127.0.0.1:5000']}
-#})
 
-auth_blueprint = create_auth_blueprint(supabase)
+environment = os.getenv('ENVIRONMENT')
+conf = {
+    'secure': True,
+    'samesite': 'strict'
+}
+
+
+if environment == 'dev':
+    # Konfiguriere CORS für Anfragen von localhost:3000
+    CORS(app, supports_credentials=True, resources={
+        r"/api/*": {"origins": ["http://127.0.0.1:3000", 'http://127.0.0.1:5000']}
+    })
+    # Konfiguriere Cookies für Entwicklungsumgebung
+    conf = {
+        'secure': False,
+        'samesite': None
+    }
+
+auth_blueprint = create_auth_blueprint(supabase, conf)
 app.register_blueprint(auth_blueprint, url_prefix='/api/auth')
 
 user_blueprint = create_user_blueprint(supabase)
 app.register_blueprint(user_blueprint, url_prefix='/api/user')
 
-post_blueprint = create_post_blueprint(supabase)
+post_blueprint = create_post_blueprint(supabase, conf)
 app.register_blueprint(post_blueprint, url_prefix='/api/post')
 
-profile_blueprint = create_profile_blueprint(supabase)
+profile_blueprint = create_profile_blueprint(supabase, conf)
 app.register_blueprint(profile_blueprint, url_prefix='/api/profile')
 
 avatar_blueprint = create_avatar_blueprint(supabase)

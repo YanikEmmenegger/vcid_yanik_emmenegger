@@ -45,7 +45,17 @@ def checkSession(request, supabase: Client):
 
 
 def createResponse(message, statusCode, data=None, refresh_token=None):
-    # create response object
+    environment = os.getenv('ENVIRONMENT')
+    conf = {
+        'secure': True,
+        'samesite': 'strict'
+    }
+    if environment == 'dev':
+        # Konfiguriere Cookies für Entwicklungsumgebung
+        conf = {
+            'secure': False,
+            'samesite': None
+        }
     response_data = {"status": {"code": statusCode, "message": message}}
     # if data is provided, add it to the response object
     if data:
@@ -55,7 +65,8 @@ def createResponse(message, statusCode, data=None, refresh_token=None):
     # if refresh token is provided, set it as a cookie
     if refresh_token:
         # set refresh token as a cookie
-        response.set_cookie('refresh_token', refresh_token, httponly=False, secure=True, samesite=None,
+        response.set_cookie('refresh_token', refresh_token, httponly=False, secure=conf['secure'], samesite=conf['samesite']
+,
                             max_age=timedelta(days=30))
     # return response
     return response

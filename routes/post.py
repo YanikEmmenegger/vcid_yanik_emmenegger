@@ -6,7 +6,7 @@ from helpers import createResponse, errorHandler, checkSession
 from supabase import Client
 
 
-def create_post_blueprint(supabase: Client):
+def create_post_blueprint(supabase: Client, conf: dict):
     post_blueprint = Blueprint('post', __name__)
 
     @post_blueprint.route('<path:post_id>/comment', methods=['DELETE'])
@@ -33,7 +33,7 @@ def create_post_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=conf['secure'], samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
     @post_blueprint.route('/', methods=['POST'])
@@ -67,7 +67,7 @@ def create_post_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=conf['secure'], samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
     @post_blueprint.route('/', methods=['GET'])
@@ -203,7 +203,7 @@ def create_post_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=conf['secure'], samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
     @post_blueprint.route('/<path:post_id>/like', methods=['POST'])
@@ -276,12 +276,12 @@ def create_post_blueprint(supabase: Client):
             except Exception as e:
                 # if an error occurs, return an error response
                 response = errorHandler(str(e))
-                return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+                return response.set_cookie('refresh_token', tokenOrError, httponly=True,secure=conf['secure'], samesite=conf['samesite'],
                                            max_age=timedelta(days=30))
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=conf['secure'], samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
     @post_blueprint.route('/<path:post_id>/comment', methods=['POST'])
@@ -313,7 +313,7 @@ def create_post_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=conf['secure'], samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
     @post_blueprint.route('/<path:post_id>', methods=['PATCH'])
@@ -350,7 +350,7 @@ def create_post_blueprint(supabase: Client):
         except Exception as e:
             # if an error occurs, return an error response
             response = errorHandler(str(e))
-            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=True, samesite=None,
+            return response.set_cookie('refresh_token', tokenOrError, httponly=True, secure=conf['secure'], samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
     return post_blueprint
