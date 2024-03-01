@@ -28,7 +28,7 @@ if (process.env.REACT_APP_API_BASE_URL) {
 } else {
     axios.defaults.baseURL = "https://"+window.location.host
 }
-console.debug(window.location.host)
+console.debug(axios.defaults.baseURL)
 
 
 
