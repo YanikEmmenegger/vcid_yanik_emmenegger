@@ -34,7 +34,7 @@ cd ..
 
 # Docker Compose zum Neustarten des Services verwenden
 echo "Starte den Service neu..."
-docker-compose down && docker-compose up -d
+docker compose down && docker compose up -d
 
 # Lösche alle nicht verwendeten Docker-Images
 echo "Lösche alle nicht verwendeten Docker-Images..."
