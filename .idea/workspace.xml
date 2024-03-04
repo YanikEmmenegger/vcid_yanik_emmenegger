@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh">
-      <change beforePath="$PROJECT_DIR$/service_files/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_files/boot.sh" beforeDir="false" afterPath="$PROJECT_DIR$/boot.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_files/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh / Docker">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +75,8 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/routes" />
     </key>
   </component>
@@ -177,23 +175,7 @@
       <workItem from="1709548155916" duration="1849000" />
       <workItem from="1709550649397" duration="10000" />
       <workItem from="1709555364919" duration="22000" />
-      <workItem from="1709557178738" duration="622000" />
-    </task>
-    <task id="LOCAL-00001" summary="new structur">
-      <option name="closed" value="true" />
-      <created>1708449362700</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1708449362700</updated>
-    </task>
-    <task id="LOCAL-00002" summary="new endpoints">
-      <option name="closed" value="true" />
-      <created>1708532352896</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1708532352896</updated>
+      <workItem from="1709557178738" duration="1066000" />
     </task>
     <task id="LOCAL-00003" summary="new endpoints">
       <option name="closed" value="true" />
@@ -563,7 +545,31 @@
       <option name="project" value="LOCAL" />
       <updated>1709557621002</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="boot.sh">
+      <option name="closed" value="true" />
+      <created>1709557870774</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1709557870774</updated>
+    </task>
+    <task id="LOCAL-00050" summary="boot.sh">
+      <option name="closed" value="true" />
+      <created>1709558056931</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1709558056932</updated>
+    </task>
+    <task id="LOCAL-00051" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709558242841</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1709558242841</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +599,8 @@
     <MESSAGE value="version 1.0 (include build)" />
     <MESSAGE value="environment configs (security)" />
     <MESSAGE value="boot.sh" />
-    <option name="LAST_COMMIT_MESSAGE" value="boot.sh" />
+    <MESSAGE value="boot.sh / Docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="boot.sh / Docker" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$vcid_yanik_emmenegger.coverage" NAME="vcid_yanik_emmenegger Coverage Results" MODIFIED="1708076423029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
