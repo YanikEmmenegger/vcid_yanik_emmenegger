@@ -27,7 +27,7 @@ const CommentItem: FC<CommentItemProps> = ({comment, deleteComment}) => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const response = await axios.get('https://vcid.yanik.pro/api/user/' + comment.user_id + '?UserDetailsOnly=true')
+                const response = await axios.get('/api/user/' + comment.user_id + '?UserDetailsOnly=true')
                 setUser(response.data.data)
 
             } catch (e: any) {

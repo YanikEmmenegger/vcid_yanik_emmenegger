@@ -23,7 +23,7 @@ const UserHeader: FC<UserHeaderProps> = ({avatar, bio, name, isOwner}) => {
 
     const handleLogout = async () => {
         try {
-            const res = await axios.get('https://vcid.yanik.pro/api/auth/logout');
+            const res = await axios.get('/api/auth/logout');
             if (res.status === 200) {
                 toast.success("You have successfully logged out!");
                 navigate("/app/login")

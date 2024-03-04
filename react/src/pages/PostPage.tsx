@@ -19,7 +19,7 @@ const PostPage: FC = () => {
     const fetchPost = async () => {
         try {
             //fetch post data
-            const response = await axios.get('https://vcid.yanik.pro/api/post/' + id)
+            const response = await axios.get('/api/post/' + id)
             //set post data
             setPost(response.data.data.post)
             setError404(false)

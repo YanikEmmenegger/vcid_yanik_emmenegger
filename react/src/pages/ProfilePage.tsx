@@ -38,7 +38,7 @@ const ProfilePage: FC = () => {
         if (!loading) {
             const getUser = async () => {
                 try {
-                    const res = await axios.get('https://vcid.yanik.pro/api/user/' + cookies.uuid);
+                    const res = await axios.get('/api/user/' + cookies.uuid);
                     setUser(res.data.data.user)
                     setPosts(res.data.data.posts.posts)
                     setNext(res.data.data.posts.links)

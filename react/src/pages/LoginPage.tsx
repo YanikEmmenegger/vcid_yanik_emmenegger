@@ -18,7 +18,7 @@ const LoginPage: FC = () => {
     useEffect(() => {
        const logout = async () => {
            try {
-               await axios.get('https://vcid.yanik.pro/api/auth/logout')
+               await axios.get('/api/auth/logout')
            }
            catch (e: any) {
                console.log(e)

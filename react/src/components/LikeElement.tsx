@@ -21,7 +21,7 @@ const LikeElement: FC<LikeElementProps> = ({like}) => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const response = await axios.get('https://vcid.yanik.pro/api/user/' + like.user_id + '?UserDetailsOnly=true')
+                const response = await axios.get('/api/user/' + like.user_id + '?UserDetailsOnly=true')
                 setUser(response.data.data)
 
             } catch (e: any) {

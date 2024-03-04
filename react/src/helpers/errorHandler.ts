@@ -7,7 +7,7 @@ const errorHandler = (error: any) => {
 
     const error307 = async () => {
         try {
-            const res = await axios.get('https://vcid.yanik.pro/api/auth/logout')
+            const res = await axios.get('/api/auth/logout')
             if (res.status === 200) {
                 toast.success("You have been logged out!")
                 return;

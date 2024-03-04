@@ -22,7 +22,7 @@ const SearchPage: React.FC = () => {
     const fetchUsers = useCallback(async () => {
         try {
             setLoading(true); // Aktivieren des Ladestatus vor dem API-Aufruf
-            const response = await axios.get(`https://vcid.yanik.pro/api/user?name=${search}`);
+            const response = await axios.get(`/api/user?name=${search}`);
             setUsers(response.data.data.users);
             setLoading(false);
         } catch (e) {
@@ -34,7 +34,7 @@ const SearchPage: React.FC = () => {
     const fetchPosts = useCallback(async () => {
         try {
             setLoading(true); // Aktivieren des Ladestatus vor dem API-Aufruf
-            const response = await axios.get(`https://vcid.yanik.pro/api/post?limit=100&query=${search}`);
+            const response = await axios.get(`/api/post?limit=100&query=${search}`);
             setPosts(response.data.data.posts);
             setLoading(false);
         } catch (e) {

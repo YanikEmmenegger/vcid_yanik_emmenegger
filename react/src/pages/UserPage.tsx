@@ -23,7 +23,7 @@ const UserPage = () => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const res = await axios.get('https://vcid.yanik.pro/api/user/' + id);
+                const res = await axios.get('/api/user/' + id);
                 setUser(res.data.data.user)
                 setPosts(res.data.data.posts.posts)
                 setNext(res.data.data.posts.links)
