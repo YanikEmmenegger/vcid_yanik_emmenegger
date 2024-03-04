@@ -5,8 +5,7 @@ EXPECTED_DIR="/home/g1999emmenegger/vcid_yanik_emmenegger"
 
 # Aktuelles Verzeichnis prüfen
 if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
-    echo "Dieses Skript muss im Verzeichnis $EXPECTED_DIR ausgeführt werden."
-    exit 1
+    cd $EXPECTED_DIR
 fi
 
 # Aktualisiere das Repository und überschreibe lokale Änderungen
