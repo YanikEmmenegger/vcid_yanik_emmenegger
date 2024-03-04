@@ -173,31 +173,7 @@
       <workItem from="1709548155916" duration="1849000" />
       <workItem from="1709550649397" duration="10000" />
       <workItem from="1709555364919" duration="22000" />
-      <workItem from="1709557178738" duration="3039000" />
-    </task>
-    <task id="LOCAL-00008" summary="frontend">
-      <option name="closed" value="true" />
-      <created>1708700102310</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1708700102310</updated>
-    </task>
-    <task id="LOCAL-00009" summary="frontend basics with login / logout">
-      <option name="closed" value="true" />
-      <created>1708704232403</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1708704232403</updated>
-    </task>
-    <task id="LOCAL-00010" summary="posts">
-      <option name="closed" value="true" />
-      <created>1708962960290</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1708962960290</updated>
+      <workItem from="1709557178738" duration="3410000" />
     </task>
     <task id="LOCAL-00011" summary="popups">
       <option name="closed" value="true" />
@@ -567,7 +543,31 @@
       <option name="project" value="LOCAL" />
       <updated>1709560116229</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709560357910</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1709560357910</updated>
+    </task>
+    <task id="LOCAL-00058" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709560456808</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1709560456808</updated>
+    </task>
+    <task id="LOCAL-00059" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709560585593</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1709560585593</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
