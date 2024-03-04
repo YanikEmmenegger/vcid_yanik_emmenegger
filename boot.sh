@@ -23,16 +23,8 @@ git reset --hard origin/master
 # Verwenden Sie die --exclude Option, um .env vor dem Löschen zu schützen
 git clean -fdx --exclude=.env
 
-
-
-# Änderungen außerhalb des "react" Ordners prüfen
-if git status --porcelain | grep -v "^?? react/" | grep .; then
-    echo "Änderungen außerhalb des 'react' Ordners erkannt. Erstelle ein neues Docker-Image."
-    docker build -t vcid .
-else
-    echo "Keine Änderungen außerhalb des 'react' Ordners erkannt. Überspringe das Erstellen eines neuen Docker-Images."
-fi
-
+echo "Repository aktualisiert."
+docker build -t vcid .
 
 # Docker Compose zum Neustarten des Services verwenden
 echo "Starte den Service neu..."
