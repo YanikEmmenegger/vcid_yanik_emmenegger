@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
         setLoading(true)
         try {
             console.log(axios.defaults.baseURL)
-            const res = await axios.get('/api/post');
+            const res = await axios.get('/api/post/');
             setNextPosts(res.data.data.links)
             setPosts(res.data.data.posts)
             setLoading(false)

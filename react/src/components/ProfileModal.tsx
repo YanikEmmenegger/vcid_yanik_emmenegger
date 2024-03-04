@@ -30,7 +30,7 @@ const ProfileModal = () => {
 
         const getAvatar = async () => {
             try {
-                const response = await axios.get("/api/avatar")
+                const response = await axios.get("/api/avatar/")
                 setAllAvatars(response.data.data.avatars)
             } catch (e: any) {
                 toast.error("An error occurred while trying to get the avatar! Try again later!")
