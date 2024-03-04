@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Dieses Skript wird auf dem Server ausgeführt, um den Service neu zu starten.
+
 # Setzen Sie das erwartete Verzeichnis
 EXPECTED_DIR="/home/g1999emmenegger/vcid_yanik_emmenegger"
 SERVICE_FILES_DIR="service_files"
