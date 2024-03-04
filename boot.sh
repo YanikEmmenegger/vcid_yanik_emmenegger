@@ -9,6 +9,12 @@ if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
     exit 1
 fi
 
+# Aktualisiere das Repository und überschreibe lokale Änderungen
+echo "Aktualisiere das Repository und überschreibe lokale Änderungen..."
+git fetch --all
+git reset --hard origin/master
+git clean -fdx
+
 # Änderungen außerhalb des "react" Ordners prüfen
 if git status --porcelain | grep -v "^?? react/" | grep .; then
     echo "Änderungen außerhalb des 'react' Ordners erkannt. Erstelle ein neues Docker-Image."
