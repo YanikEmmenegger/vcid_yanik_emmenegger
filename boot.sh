@@ -4,11 +4,16 @@
 
 # Setzen Sie das erwartete Verzeichnis
 EXPECTED_DIR="/home/g1999emmenegger/vcid_yanik_emmenegger"
-SERVICE_FILES_DIR="service_files"
 
 # Aktuelles Verzeichnis prüfen und wechseln falls notwendig
 if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
     cd $EXPECTED_DIR
+fi
+
+# prüfe ob .env Datei existiert
+if [ ! -f .env ]; then
+    echo "Die .env Datei existiert nicht. Erstelle eine neue .env Datei."
+    exit 1
 fi
 
 # Aktualisiere das Repository und überschreibe lokale Änderungen

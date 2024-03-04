@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh / Docker">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh / Docker" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,15 +173,7 @@
       <workItem from="1709548155916" duration="1849000" />
       <workItem from="1709550649397" duration="10000" />
       <workItem from="1709555364919" duration="22000" />
-      <workItem from="1709557178738" duration="2369000" />
-    </task>
-    <task id="LOCAL-00006" summary="register">
-      <option name="closed" value="true" />
-      <created>1708584637028</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1708584637028</updated>
+      <workItem from="1709557178738" duration="2688000" />
     </task>
     <task id="LOCAL-00007" summary="frontend">
       <option name="closed" value="true" />
@@ -569,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709558883934</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709559863133</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1709559863133</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,6 +602,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$vcid_yanik_emmenegger.coverage" NAME="vcid_yanik_emmenegger Coverage Results" MODIFIED="1708076423029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1709303303706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1709559544567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
