@@ -5,7 +5,7 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Kopieren Sie die aktuellen Verzeichnisinhalte in das Arbeitsverzeichnis im Container
-COPY . /app
+COPY ./requirements.txt /app
 
 # Installieren Sie die benötigten Pakete aus der requirements.txt
 RUN pip install -r requirements.txt

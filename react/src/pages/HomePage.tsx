@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
     return (
         <div className={"mt-3"}>
             <div className={"flex"}>
-                <h1 className={"text-2xl mb-3 test-neu"}>Latest Posts </h1>
+                <h1 className={"text-2xl mb-3 test-neu-1"}>Latest Posts </h1>
                 <IconButton icon={CiRedo} onClick={handleRefresh}/>
             </div>
             <PostsComponent posts={posts}/>
