@@ -20,7 +20,9 @@ fi
 echo "Aktualisiere das Repository und überschreibe lokale Änderungen..."
 git fetch --all
 git reset --hard origin/master
-git clean -fdx
+# Verwenden Sie die --exclude Option, um .env vor dem Löschen zu schützen
+git clean -fdx --exclude=.env
+
 
 
 # Änderungen außerhalb des "react" Ordners prüfen
