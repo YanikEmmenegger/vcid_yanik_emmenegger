@@ -94,7 +94,7 @@ const PostItem: FC<PostItemProps> = ({post}) => {
 
         const getUser = async () => {
             try {
-                const res = await axios.get('/api/user/' + post.user_id + '/?UserDetailsOnly=true');
+                const res = await axios.get('/api/user/' + post.user_id + '?UserDetailsOnly=true');
                 const user = {
                     'username': res.data.data.name.toUpperCase(),
                     'avatar': res.data.data.avatars?.icon || '👤',
