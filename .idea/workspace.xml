@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh">
+      <change beforePath="$PROJECT_DIR$/service_files/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_files/boot.sh" beforeDir="false" afterPath="$PROJECT_DIR$/boot.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_files/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +177,7 @@
       <workItem from="1709548155916" duration="1849000" />
       <workItem from="1709550649397" duration="10000" />
       <workItem from="1709555364919" duration="22000" />
-      <workItem from="1709557178738" duration="300000" />
+      <workItem from="1709557178738" duration="622000" />
     </task>
     <task id="LOCAL-00001" summary="new structur">
       <option name="closed" value="true" />
@@ -551,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709557472985</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="boot.sh">
+      <option name="closed" value="true" />
+      <created>1709557621002</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1709557621002</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

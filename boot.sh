@@ -17,11 +17,6 @@ git fetch --all
 git reset --hard origin/master
 git clean -fdx
 
-# Prüfen, ob sich etwas im Ordner "service_files" geändert hat
-if git diff --name-only HEAD@{1} | grep "$SERVICE_FILES_DIR/"; then
-    echo "Änderungen im '$SERVICE_FILES_DIR' Ordner erkannt. Kopiere Dateien nach '../'."
-    cp -r "$SERVICE_FILES_DIR/"* ../
-fi
 
 # Änderungen außerhalb des "react" Ordners prüfen
 if git status --porcelain | grep -v "^?? react/" | grep .; then
@@ -32,7 +27,7 @@ else
 fi
 
 # Wechseln in das Verzeichnis eine Ebene höher
-cd ..
+cd ../
 
 # Docker Compose zum Neustarten des Services verwenden
 echo "Starte den Service neu..."
