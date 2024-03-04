@@ -5,5 +5,3 @@ services:
     image: vcidflask
     ports:
       - "5001:5000"
-    volumes:
-      - .:/app
