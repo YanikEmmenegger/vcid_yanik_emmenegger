@@ -26,8 +26,6 @@ else
     echo "Keine Änderungen außerhalb des 'react' Ordners erkannt. Überspringe das Erstellen eines neuen Docker-Images."
 fi
 
-# Wechseln in das Verzeichnis eine Ebene höher
-cd ../
 
 # Docker Compose zum Neustarten des Services verwenden
 echo "Starte den Service neu..."
