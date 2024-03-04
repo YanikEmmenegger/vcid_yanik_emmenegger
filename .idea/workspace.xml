@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh">
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot.sh" beforeDir="false" afterPath="$PROJECT_DIR$/boot.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +77,7 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/routes" />
     </key>
@@ -172,7 +174,7 @@
       <workItem from="1709290442744" duration="2342000" />
       <workItem from="1709295109815" duration="5787000" />
       <workItem from="1709537908930" duration="2030000" />
-      <workItem from="1709548155916" duration="1129000" />
+      <workItem from="1709548155916" duration="1544000" />
     </task>
     <task id="LOCAL-00001" summary="new structur">
       <option name="closed" value="true" />
@@ -494,7 +496,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709548373471</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="boot.sh">
+      <option name="closed" value="true" />
+      <created>1709549296145</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1709549296145</updated>
+    </task>
+    <task id="LOCAL-00042" summary="boot.sh">
+      <option name="closed" value="true" />
+      <created>1709549419639</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709549419639</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
