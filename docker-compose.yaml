@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   vcid_app:
-    image: vcid
+    image: vcidflask
     ports:
-      - "5000:5000"
+      - "5001:5000"
     volumes:
       - .:/app
