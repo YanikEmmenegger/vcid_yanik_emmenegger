@@ -23,7 +23,6 @@ conf = {
     'samesite': 'strict'
 }
 
-
 if environment == 'dev':
     # Konfiguriere CORS für Anfragen von localhost:3000
     CORS(app, supports_credentials=True, resources={
@@ -51,6 +50,14 @@ avatar_blueprint = create_avatar_blueprint(supabase)
 app.register_blueprint(avatar_blueprint, url_prefix='/api/avatar')
 
 
+# endpunkt /api/deploy
+@app.route('/api/deploy')
+def deploy():
+    # ausführen des deploy script
+    os.system('bash boot.sh')
+    return jsonify({'Deploy': 'Success'})
+
+
 @app.route('/')
 def redirect_root_to_app():
     return redirect('/app/', code=302)
@@ -68,4 +75,3 @@ def serve_app(path):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
