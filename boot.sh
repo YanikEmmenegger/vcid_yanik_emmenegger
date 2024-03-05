@@ -22,6 +22,9 @@ git fetch --all
 git reset --hard origin/master
 # Verwenden Sie die --exclude Option, um .env vor dem Löschen zu schützen
 git clean -fdx --exclude=.env
+# exclude auch boot.sh
+git clean -fdx --exclude=boot.sh
+git pull
 
 
 # Images neu erstellen
