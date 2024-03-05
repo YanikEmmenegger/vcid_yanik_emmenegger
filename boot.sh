@@ -10,6 +10,12 @@ if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
     cd $EXPECTED_DIR
 fi
 
+# Pürfen ob .env existiert
+if [ ! -f .env ]; then
+    echo "Die .env Datei existiert nicht."
+    exit 1
+fi
+
 # Sichern der .env Datei und boot.sh Berechtigungen
 cp .env .env_backup
 chmod_permissions=$(stat -c %a boot.sh)
