@@ -1,7 +1,17 @@
 version: '3.8'
 
 services:
-  vcid_app:
-    image: vcidflask
+  flask_app:
+    build: .
+    volumes:
+      - .:/app
+
+  nginx:
+    build: ./nginx
     ports:
-      - "5001:5000"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - flask_app
