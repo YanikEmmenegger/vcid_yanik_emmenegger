@@ -10,22 +10,18 @@ if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
     cd $EXPECTED_DIR
 fi
 
-# prüfe ob .env Datei existiert
-if [ ! -f .env ]; then
-    echo "Die .env Datei existiert nicht. Erstelle eine neue .env Datei."
-    exit 1
-fi
+# Sichern der .env Datei und boot.sh Berechtigungen
+cp .env .env_backup
+chmod_permissions=$(stat -c %a boot.sh)
 
-# Aktualisiere das Repository und überschreibe lokale Änderungen
-echo "Aktualisiere das Repository und überschreibe lokale Änderungen..."
-git fetch --all
-git reset --hard origin/master
-# Verwenden Sie die --exclude Option, um .env vor dem Löschen zu schützen
-git clean -fdx --exclude=.env
-# exclude auch boot.sh
-git clean -fdx --exclude=boot.sh
+# Git-Repository aktualisieren
+git stash push --include-untracked
 git pull
+git stash pop
 
+# Wiederherstellen der .env Datei und boot.sh Berechtigungen
+mv .env_backup .env
+chmod $chmod_permissions boot.sh
 
 # Images neu erstellen
 docker compose down --rmi all
@@ -36,4 +32,3 @@ echo "Lösche alle nicht verwendeten Docker-Images..."
 docker image prune -a --force
 
 echo "Vorgang abgeschlossen."
-
