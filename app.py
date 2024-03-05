@@ -50,14 +50,6 @@ avatar_blueprint = create_avatar_blueprint(supabase)
 app.register_blueprint(avatar_blueprint, url_prefix='/api/avatar')
 
 
-# endpunkt /api/deploy
-@app.route('/api/deploy')
-def deploy():
-    # ausführen des deploy script
-    os.system('bash boot.sh')
-    return jsonify({'Deploy': 'Success'})
-
-
 @app.route('/')
 def redirect_root_to_app():
     return redirect('/app/', code=302)
