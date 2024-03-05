@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh / Docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,23 +206,7 @@
       <workItem from="1709555364919" duration="22000" />
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
-      <workItem from="1709581094651" duration="2973000" />
-    </task>
-    <task id="LOCAL-00016" summary="version 1.0">
-      <option name="closed" value="true" />
-      <created>1709127794785</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1709127794785</updated>
-    </task>
-    <task id="LOCAL-00017" summary="version 1.0">
-      <option name="closed" value="true" />
-      <created>1709131037504</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1709131037504</updated>
+      <workItem from="1709581094651" duration="3841000" />
     </task>
     <task id="LOCAL-00018" summary="version 1.0 (include build)">
       <option name="closed" value="true" />
@@ -601,7 +584,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709642779295</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709643527887</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1709643527887</updated>
+    </task>
+    <task id="LOCAL-00066" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709644278030</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1709644278030</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
