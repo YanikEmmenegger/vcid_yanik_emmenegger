@@ -23,12 +23,10 @@ git reset --hard origin/master
 # Verwenden Sie die --exclude Option, um .env vor dem Löschen zu schützen
 git clean -fdx --exclude=.env
 
-echo "Repository aktualisiert."
-docker build -t vcid .
 
-# Docker Compose zum Neustarten des Services verwenden
-echo "Starte den Service neu..."
-docker compose down && docker compose up -d
+# Images neu erstellen
+docker compose down --rmi all
+docker compose up -d --build
 
 # Lösche alle nicht verwendeten Docker-Images
 echo "Lösche alle nicht verwendeten Docker-Images..."
