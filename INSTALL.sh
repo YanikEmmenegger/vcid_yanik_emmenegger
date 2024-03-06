@@ -8,8 +8,8 @@ sudo apt install -y git docker docker-compose python3-pip certbot
 sudo apt-get install apt-utils
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-apt -y install docker-compose-plugin
-apt-get -y install docker-compose-plugin
+sudo apt -y install docker-compose-plugin
+sudo apt-get -y install docker-compose-plugin
 sudo usermod -aG docker $USER
 
 # Mache Skripts ausführbar
@@ -48,5 +48,6 @@ source venv/bin/activate
 pip install gunicorn flask
 
 # Wechsle Verzeichnis zurück und führe STARTER.sh aus
-cd ..
-./STARTER.sh
+echo "Installation abgeschlossen. Bitte logge dich aus und wieder ein, um die Docker-Gruppe zu aktualisieren."
+echo "Führe ./STARTER.sh aus, um die Anwendung zu starten."
+
