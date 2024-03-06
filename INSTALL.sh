@@ -6,6 +6,10 @@ sudo apt update
 # Installiere notwendige Pakete
 sudo apt install -y git docker docker-compose python3-pip certbot
 
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
 # Mache Skripts ausführbar
 chmod +x ./boot.sh
 chmod +x ./autoupdater/boot.sh
@@ -36,6 +40,7 @@ echo "SUPABASE_KEY=$SUPABASE_KEY" >> .env
 
 # Wechsle ins Verzeichnis autoupdater und setze Umgebung auf
 cd autoupdater
+sudo apt install -y python3.11-venv
 python3 -m venv venv
 source venv/bin/activate
 pip install gunicorn flask
