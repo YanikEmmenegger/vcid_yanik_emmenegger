@@ -89,7 +89,7 @@ const CommentModal = () => {
                     })
                     }
                 </div>
-                <div className={twMerge("flex items-center", cookies.uuid ? "block" : "hidden")}>
+                <div className={twMerge("flex items-center", cookies.uuid ? "flex" : "hidden")}>
                     <Input className={"bg-amber-600"} placeholder={"Comment"} type={"text"} name={"comment"}
                            value={newComment} onChange={handleCommentChange}/>
                     <IconButton icon={BiSend} onClick={createComment}/>
