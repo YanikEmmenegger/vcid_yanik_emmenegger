@@ -5,10 +5,12 @@ sudo apt update
 
 # Installiere notwendige Pakete
 sudo apt install -y git docker docker-compose python3-pip certbot
-
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+sudo apt-get install apt-utils
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo apt install docker-compose-plugin
+sudo apt-get install docker-compose-plugin
+sudo usermod -aG docker $USER
 
 # Mache Skripts ausführbar
 chmod +x ./boot.sh
