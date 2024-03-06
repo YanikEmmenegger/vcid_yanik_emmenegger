@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Installer" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Installer">
+      <change beforePath="$PROJECT_DIR$/INSTALL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/INSTALL.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STARTER.sh" beforeDir="false" afterPath="$PROJECT_DIR$/STARTER.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,15 +230,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="24085000" />
-    </task>
-    <task id="LOCAL-00091" summary="favicon update / Route correction (logout)">
-      <option name="closed" value="true" />
-      <created>1709715421107</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1709715421107</updated>
+      <workItem from="1709647699957" duration="24536000" />
     </task>
     <task id="LOCAL-00092" summary="autoupdater">
       <option name="closed" value="true" />
@@ -621,7 +616,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709737097615</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Installer">
+      <option name="closed" value="true" />
+      <created>1709737350515</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1709737350515</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -51,7 +51,6 @@ python3 -m venv venv
 source venv/bin/activate
 pip install gunicorn flask
 
-# Wechsle Verzeichnis zurück und führe STARTER.sh aus
 echo "Installation abgeschlossen. Bitte logge dich aus und wieder ein, um die Docker-Gruppe zu aktualisieren."
 echo "Führe ./STARTER.sh aus, um die Anwendung zu starten."
 

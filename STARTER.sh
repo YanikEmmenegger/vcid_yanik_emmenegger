@@ -21,3 +21,5 @@ curl -X POST http://localhost:8000
 
 # Meldung in ROT
 echo -e "\e[31m\nDer Autoupdater wurde gestartet. Bitte Github Action auf korrekte URL einstellen Port 8000.\e[0m"
+read -p "Willst du die Logs weiterhin sehen kann später auch per CTRL C beendet werden (updater läuft weiter)? (y/n): " answer
+exit 0
