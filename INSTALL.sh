@@ -29,9 +29,10 @@ sudo certbot certonly --standalone -d $DOMAIN -v
 
 # Anpassen der NGINX-Konfiguration mit der tatsächlichen Domain
 NGINX_CONF_PATH="./nginx/nginx.conf" # Pfad zur NGINX-Konfigurationsdatei anpassen
-sudo sed -i "s|ssl_certificate /etc/letsencrypt/live/DEINE_DOMAIN/fullchain.pem;|ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;|g" $NGINX_CONF_PATH
-sudo sed -i "s|ssl_certificate_key /etc/letsencrypt/live/DEINE_DOMAIN/privkey.pem;|ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;|g" $NGINX_CONF_PATH
-
+#sudo sed -i "s|ssl_certificate /etc/letsencrypt/live/DEINE_DOMAIN/fullchain.pem;|ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;|g" $NGINX_CONF_PATH
+#sudo sed -i "s|ssl_certificate_key /etc/letsencrypt/live/DEINE_DOMAIN/privkey.pem;|ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;|g" $NGINX_CONF_PATH
+# Ändere die Domain in der NGINX-Konfiguration überall wo DOMAIN_NAME steht
+sudo sed -i "s|DOMAIN_NAME|$DOMAIN|g" $NGINX_CONF_PATH
 # Frage nach Supabase URL und Key
 read -p "Bitte geben Sie Ihre Supabase URL ein: " SUPABASE_URL
 read -p "Bitte geben Sie Ihren Supabase Key ein: " SUPABASE_KEY

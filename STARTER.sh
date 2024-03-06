@@ -19,5 +19,7 @@ sleep 5
 # Make a POST request
 curl -X POST http://localhost:8000
 
-# You might want to add more commands here to manage the server process
-# or to perform additional actions.
+# Meldung in ROT
+echo -e "\e[31mDer Autoupdater wurde gestartet. Bitte Github Action auf korrekte URL einstellen Port 8000.\e[0m"
+# schliesse das script ab
+exit 0
