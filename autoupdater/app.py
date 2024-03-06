@@ -4,7 +4,7 @@ import subprocess
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def run_script():
     script_path = "./boot.sh"
     subprocess.call(script_path, shell=True)
