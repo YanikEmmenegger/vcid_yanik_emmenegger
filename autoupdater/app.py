@@ -1,14 +1,15 @@
 from flask import Flask
-import os
+import subprocess
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def run_script():
-    os.system("./boot.sh")
-    return "update initiated! - site will be down for a few seconds."
+    script_path = "./boot.sh"
+    subprocess.call(script_path, shell=True)
+    return "Script ausgeführt!"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
