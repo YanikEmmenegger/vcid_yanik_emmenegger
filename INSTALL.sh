@@ -41,6 +41,9 @@ read -p "Bitte geben Sie Ihren Supabase Key ein: " SUPABASE_KEY
 echo "SUPABASE_URL=$SUPABASE_URL" > .env
 echo "SUPABASE_KEY=$SUPABASE_KEY" >> .env
 
+# passe die datei autoupdater/boot.sh an, damit sie das richtige Verzeichnis erwartet PFAD_ANPASSEN_INSTALLER ersetzen mit pwd
+sed -i "s|PFAD_ANPASSEN_INSTALLER|$(pwd)|g" autoupdater/boot.sh
+
 # Wechsle ins Verzeichnis autoupdater und setze Umgebung auf
 cd autoupdater
 sudo apt install -y python3.11-venv

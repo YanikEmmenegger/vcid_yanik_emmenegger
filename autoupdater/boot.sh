@@ -3,7 +3,7 @@
 # Dieses Skript wird auf dem Server ausgeführt, um den Service neu zu starten.
 
 # Setzen Sie das erwartete Verzeichnis
-EXPECTED_DIR="/home/g1999emmenegger/vcid_yanik_emmenegger"
+EXPECTED_DIR=PFAD_ANPASSEN_INSTALLER
 
 # Aktuelles Verzeichnis prüfen und wechseln falls notwendig
 if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
@@ -16,9 +16,7 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
-# Sichern der .env Datei und boot.sh Berechtigungen
 cp .env .env_backup
-chmod_permissions=$(stat -c %a boot.sh)
 
 # Git-Repository aktualisieren
 git stash push --include-untracked
@@ -27,8 +25,8 @@ git stash pop
 
 # Wiederherstellen der .env Datei und boot.sh Berechtigungen
 mv .env_backup .env
-chmod $chmod_permissions boot.sh
-
+chmod +x STARTER.sh
+chmod +x autoupdater/boot.sh
 # Images neu erstellen
 docker compose down --rmi all
 docker compose up -d --build
