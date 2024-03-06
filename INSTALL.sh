@@ -21,6 +21,9 @@ sudo fuser -k 80/tcp
 # Führe den Certbot Befehl im Standalone-Modus aus
 sudo certbot certonly --standalone -d $DOMAIN
 
+# Kopiere die Zertifikate in das NGINX-Verzeichnis
+sudo cp /etc/letsencrypt/live/$DOMAIN/fullchain.pem ./nginx/certs/
+
 # Anpassen der NGINX-Konfiguration mit der tatsächlichen Domain
 NGINX_CONF_PATH="./nginx/nginx.conf" # Pfad zur NGINX-Konfigurationsdatei anpassen
 sudo sed -i "s|ssl_certificate /etc/letsencrypt/live/DEINE_DOMAIN/fullchain.pem;|ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;|g" $NGINX_CONF_PATH
