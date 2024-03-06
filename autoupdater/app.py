@@ -11,5 +11,10 @@ def run_script():
     return "Script ausgeführt!"
 
 
+@app.route('/', methods=['GET'])
+def run_script():
+    return "Zu erreichen!"
+
+
 if __name__ == "__main__":
     app.run(debug=True)
