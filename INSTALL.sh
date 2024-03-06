@@ -4,10 +4,10 @@
 
 
 # Update Package List
-apt update
+sudo apt update
 
 # Installiere notwendige Pakete
-apt install -y git docker docker-compose pip certbot python3-certbot-nginx
+sudo apt install -y git docker docker-compose pip certbot python3-certbot-nginx
 
 # Mache Skripts ausführbar
 chmod +x ./boot.sh
