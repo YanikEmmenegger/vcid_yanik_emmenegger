@@ -19,7 +19,7 @@ echo "Stelle sicher, dass Port 80 frei ist für die Certbot-Validierung"
 sudo fuser -k 80/tcp
 
 # Führe den Certbot Befehl im Standalone-Modus aus
-sudo certbot certonly --standalone -d $DOMAIN
+sudo certbot certonly --standalone -d $DOMAIN -v
 
 # Anpassen der NGINX-Konfiguration mit der tatsächlichen Domain
 NGINX_CONF_PATH="./nginx/nginx.conf" # Pfad zur NGINX-Konfigurationsdatei anpassen
