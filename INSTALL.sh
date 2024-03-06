@@ -8,8 +8,8 @@ sudo apt install -y git docker docker-compose python3-pip certbot
 sudo apt-get install apt-utils
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-sudo apt install docker-compose-plugin
-sudo apt-get install docker-compose-plugin
+apt -y install docker-compose-plugin
+apt-get -y install docker-compose-plugin
 sudo usermod -aG docker $USER
 
 # Mache Skripts ausführbar
