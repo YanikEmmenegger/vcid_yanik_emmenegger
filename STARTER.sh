@@ -2,6 +2,8 @@
 
 cd /home/g1999emmenegger/vcid_yanik_emmenegger/autoupdater
 
+python3 -m venv venv
+source venv/bin/activate
 pip install gunicorn flask
 # Start gunicorn with your Flask app
 gunicorn -b :8000 app:app &
