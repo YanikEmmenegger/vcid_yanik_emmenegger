@@ -1,6 +1,8 @@
 #!/bin/bash
 
 cd /home/g1999emmenegger/vcid_yanik_emmenegger/autoupdater
+
+pip install gunicorn flask
 # Start gunicorn with your Flask app
 gunicorn -b :8000 app:app &
 
