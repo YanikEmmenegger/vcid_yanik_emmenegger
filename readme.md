@@ -31,8 +31,8 @@ cd vcid_yanik_emmenegger
 # App starten
 ./STARTER.sh
 ```
-Dies Startet den Nginx und Flask Container sowie eine weitere Flask-App auf dem Port 8000.
-ein POST-Requst auf http://localhost:8000/ löst ein rebuild der App mit der neusten Version aus.
+Dies Startet den Nginx und Flask (https://domain.com) Container sowie eine weitere Flask-App auf dem Port 8000.
+ein POST-Request auf http://domain.com:8000/ löst ein rebuild der App mit der neusten Version aus.
 
 Dies kann in einer GitHub Action genutzt werden um die App automatisch zu aktualisieren, sobald ein Master Push stattfindet:
 .github/workflows/push.yml

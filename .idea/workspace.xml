@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/react/build/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,23 +227,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="23243000" />
-    </task>
-    <task id="LOCAL-00088" summary="readme">
-      <option name="closed" value="true" />
-      <created>1709714031558</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1709714031558</updated>
-    </task>
-    <task id="LOCAL-00089" summary="readme">
-      <option name="closed" value="true" />
-      <created>1709715183836</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1709715183836</updated>
+      <workItem from="1709647699957" duration="23717000" />
     </task>
     <task id="LOCAL-00090" summary="favicon update / Route correction (logout)">
       <option name="closed" value="true" />
@@ -624,7 +605,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709735503652</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709736495521</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1709736495521</updated>
+    </task>
+    <task id="LOCAL-00138" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709736961367</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1709736961367</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
