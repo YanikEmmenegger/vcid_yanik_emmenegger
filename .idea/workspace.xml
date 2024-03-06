@@ -231,23 +231,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="15523000" />
-    </task>
-    <task id="LOCAL-00068" summary="boot.sh / Docker">
-      <option name="closed" value="true" />
-      <created>1709644941991</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1709644941991</updated>
-    </task>
-    <task id="LOCAL-00069" summary="boot.sh / Docker">
-      <option name="closed" value="true" />
-      <created>1709644992767</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1709644992767</updated>
+      <workItem from="1709647699957" duration="16278000" />
     </task>
     <task id="LOCAL-00070" summary="boot.sh / Docker">
       <option name="closed" value="true" />
@@ -625,7 +609,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709728380531</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709728765335</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1709728765335</updated>
+    </task>
+    <task id="LOCAL-00118" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709729164527</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729164527</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
