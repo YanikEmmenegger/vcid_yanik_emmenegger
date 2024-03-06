@@ -1,10 +1,7 @@
 #!/bin/bash
 
 # Stelle sicher, dass Skript als root ausgeführt wird
-if [ "$(id -u)" != "0" ]; then
-   echo "Dieses Skript muss als root ausgeführt werden" 1>&2
-   exit 1
-fi
+
 
 # Update Package List
 apt update
@@ -23,8 +20,8 @@ read -p "Bitte geben Sie Ihre Domain ein: " DOMAIN
 sudo certbot --nginx -d $DOMAIN
 
 # Anpassen der nginx Konfiguration
-sed -i "s|ssl_certificate /etc/letsencrypt/live/DEINE_DOMAIN/fullchain.pem;|ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;|" ./nginx/nginx.conf
-sed -i "s|ssl_certificate_key /etc/letsencrypt/live/DEINE_DOMAIN/privkey.pem;|ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;|" ./nginx/nginx.conf
+sudo sed -i "s|ssl_certificate /etc/letsencrypt/live/DEINE_DOMAIN/fullchain.pem;|ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;|" ./nginx/nginx.conf
+sudo sed -i "s|ssl_certificate_key /etc/letsencrypt/live/DEINE_DOMAIN/privkey.pem;|ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;|" ./nginx/nginx.conf
 
 # Frage nach Supabase URL und Key
 read -p "Bitte geben Sie Ihre Supabase URL ein: " SUPABASE_URL

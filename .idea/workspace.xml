@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater">
-      <change afterPath="$PROJECT_DIR$/INSTALL.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STARTER.sh" beforeDir="false" afterPath="$PROJECT_DIR$/STARTER.sh" afterDir="false" />
-    </list>
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,23 +227,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="11948000" />
-    </task>
-    <task id="LOCAL-00058" summary="boot.sh / Docker">
-      <option name="closed" value="true" />
-      <created>1709560456808</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1709560456808</updated>
-    </task>
-    <task id="LOCAL-00059" summary="boot.sh / Docker">
-      <option name="closed" value="true" />
-      <created>1709560585593</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1709560585593</updated>
+      <workItem from="1709647699957" duration="12272000" />
     </task>
     <task id="LOCAL-00060" summary="boot.sh / Docker">
       <option name="closed" value="true" />
@@ -625,7 +605,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709719477267</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709720267210</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1709720267210</updated>
+    </task>
+    <task id="LOCAL-00108" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709720578692</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1709720578692</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
