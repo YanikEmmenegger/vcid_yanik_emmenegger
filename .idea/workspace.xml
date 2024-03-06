@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Installer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,15 +227,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="23717000" />
-    </task>
-    <task id="LOCAL-00090" summary="favicon update / Route correction (logout)">
-      <option name="closed" value="true" />
-      <created>1709715249162</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1709715249162</updated>
+      <workItem from="1709647699957" duration="24085000" />
     </task>
     <task id="LOCAL-00091" summary="favicon update / Route correction (logout)">
       <option name="closed" value="true" />
@@ -621,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709736961367</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Installer">
+      <option name="closed" value="true" />
+      <created>1709737097615</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1709737097615</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +658,8 @@
     <MESSAGE value="readme" />
     <MESSAGE value="favicon update / Route correction (logout)" />
     <MESSAGE value="autoupdater" />
-    <option name="LAST_COMMIT_MESSAGE" value="autoupdater" />
+    <MESSAGE value="Installer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Installer" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$vcid_yanik_emmenegger.coverage" NAME="vcid_yanik_emmenegger Coverage Results" MODIFIED="1709648776757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
