@@ -73,7 +73,13 @@ gunicorn -w 4 app:app -b 0.0.0.0:8000
 ```
 
 Webhook in Github einrichten:
-- Repository -> Settings -> Webhooks -> Add Webhook
+.github/workflows/push.yml -> Domain anpassen
+```bash
+    steps:
+    - name: Call webhook
+      run: |
+        curl -X POST http://vcid.yanik.pro:8000
+```
 
 
 
