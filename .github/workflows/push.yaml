@@ -1,0 +1,15 @@
+name: Call Webhook on Push to Master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  call-webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Call webhook
+      run: |
+        curl -X POST http://vcid.yanik.pro:8000

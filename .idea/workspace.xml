@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater">
-      <change afterPath="$PROJECT_DIR$/boot.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflow/push.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,39 +231,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="9709000" />
-    </task>
-    <task id="LOCAL-00049" summary="boot.sh">
-      <option name="closed" value="true" />
-      <created>1709557870774</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1709557870774</updated>
-    </task>
-    <task id="LOCAL-00050" summary="boot.sh">
-      <option name="closed" value="true" />
-      <created>1709558056931</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1709558056932</updated>
-    </task>
-    <task id="LOCAL-00051" summary="boot.sh / Docker">
-      <option name="closed" value="true" />
-      <created>1709558242841</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1709558242841</updated>
-    </task>
-    <task id="LOCAL-00052" summary="boot.sh / Docker">
-      <option name="closed" value="true" />
-      <created>1709558330837</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1709558330837</updated>
+      <workItem from="1709647699957" duration="10514000" />
     </task>
     <task id="LOCAL-00053" summary="boot.sh / Docker">
       <option name="closed" value="true" />
@@ -623,7 +593,39 @@
       <option name="project" value="LOCAL" />
       <updated>1709717671048</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709718080339</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1709718080339</updated>
+    </task>
+    <task id="LOCAL-00099" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709718204661</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1709718204661</updated>
+    </task>
+    <task id="LOCAL-00100" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709718274815</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1709718274815</updated>
+    </task>
+    <task id="LOCAL-00101" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709718296147</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1709718296147</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

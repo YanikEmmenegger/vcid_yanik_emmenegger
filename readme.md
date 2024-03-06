@@ -4,7 +4,7 @@ Dieses Dokument beschreibt, wie du die VCID App auf deinem Server einrichtest un
 
 ## Vorbedingungen
 
-Stelle sicher, dass `git`, `docker`, `docker-compose` auf deinem Server installiert sind.
+Stelle sicher, dass `git`, `docker`, `docker-compose` und `pip` auf deinem Server installiert sind.
 
 ## Boot-Script ausführbar machen
 
@@ -56,24 +56,24 @@ Um die App zu starten, führe das Boot-Script aus:
 ```
 Script holt sich die neuste Version von vcid und startet die App.
 
-## Cron Job für wöchentliches Auto-Software-Update
+## Zusatz -> Auto Update wenn neuste Version verfügbar auf Github
 
-Um sicherzustellen, dass deine Software wöchentlich aktualisiert wird, kannst du einen Cron Job einrichten. Öffne den Crontab-Editor mit:
-
-```bash
-crontab -e
-```
-Füge die folgende Zeile hinzu, um das Boot-Script jede Woche am Montag um 00:01 Uhr auszuführen und die Ausgabe in ein Log-File umzuleiten:
+unter autoupdater/ befindet sich eine weitere Flask app. Diese dient als Webhook für Github.
 
 ```bash
-1 0 * * 1 /home/g1999emmenegger/vcid_yanik_emmenegger/boot.sh >> /var/log/boot_script.log 2>&1
+cd autoupdater
+python3 -m venv venv
+source venv/bin/activate
+pip install gunicorn
+pip install flask
 ```
-Ersetze /home/g1999emmenegger/vcid_yanik_emmenegger/boot.sh durch den Pfad zu deinem Boot-Script.
-Speichere und schließe den Editor, um den Cron Job zu aktivieren.
-
-## App stoppen
-Mit docker-compose kannst du die App stoppen:
-    
+Webhook app starten: 
 ```bash
-docker compose down
+gunicorn -w 4 app:app -b 0.0.0.0:8000
 ```
+
+Webhook in Github einrichten:
+- Repository -> Settings -> Webhooks -> Add Webhook
+
+
+
