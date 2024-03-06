@@ -14,8 +14,5 @@ else
     certbot renew
 fi
 
-# Ersetze vcid.yanik.pro in der NGINX-Konfiguration
-sed -i "s/vcid.yanik.pro/$DOMAIN/g" /etc/nginx/conf.d/*.conf
-
 # Starte NGINX im Vordergrund
 nginx -g 'daemon off;'

@@ -7,10 +7,8 @@ RUN apk add --no-cache certbot
 # Entfernen Sie die Standard-Nginx-Konfigurationsdateien
 RUN rm /etc/nginx/conf.d/default.conf
 
-# Kopieren Sie die benutzerdefinierte Nginx-Konfigurationsdatei in das Image
+# Kopieren Sie die benutzerdefinierte Nginx-Konfigurationsdatei und das Startup-Skript in das Image
 COPY nginx.conf /etc/nginx/conf.d/
-
-# Kopiere das Startup-Skript in den Container
 COPY start-nginx.sh /start-nginx.sh
 
 # Mach das Startup-Skript ausführbar
