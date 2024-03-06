@@ -12,7 +12,7 @@ def run_script():
 
 
 @app.route('/', methods=['GET'])
-def run_script():
+def hello():
     return "Zu erreichen!"
 
 
