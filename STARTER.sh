@@ -2,6 +2,11 @@
 
 cd /home/g1999emmenegger/vcid_yanik_emmenegger/autoupdater
 
+# prüfe ob port 8000 frei ist, wenn nicht kill den Prozess
+if [ "$(sudo fuser -n tcp 8000)" != "" ]; then
+    sudo fuser -k 8000/tcp
+fi
+
 python3 -m venv venv
 source venv/bin/activate
 pip install gunicorn flask
