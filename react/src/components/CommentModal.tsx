@@ -8,11 +8,14 @@ import toast from "react-hot-toast";
 import {BiSend} from "react-icons/bi";
 import axios from "axios";
 import errorHandler from "../helpers/errorHandler";
+import {twMerge} from "tailwind-merge";
+import {useCookies} from "react-cookie";
 
 
 const CommentModal = () => {
     const [newComment, setNewComment] = useState("")
     const commentModal = useCommentsModal()
+    const [cookies] = useCookies()
     const onChange = (open: boolean) => {
         if (!open) {
             commentModal.onClose()
@@ -86,7 +89,7 @@ const CommentModal = () => {
                     })
                     }
                 </div>
-                <div className={"flex items-center"}>
+                <div className={twMerge("flex items-center", cookies.uuid ? "block" : "hidden")}>
                     <Input className={"bg-amber-600"} placeholder={"Comment"} type={"text"} name={"comment"}
                            value={newComment} onChange={handleCommentChange}/>
                     <IconButton icon={BiSend} onClick={createComment}/>
