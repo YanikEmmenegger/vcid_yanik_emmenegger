@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="autoupdater">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoupdater/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoupdater/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,8 +80,8 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/autoupdater" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/routes" />
     </key>
@@ -227,23 +230,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="8926000" />
-    </task>
-    <task id="LOCAL-00046" summary="boot.sh">
-      <option name="closed" value="true" />
-      <created>1709557452934</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1709557452934</updated>
-    </task>
-    <task id="LOCAL-00047" summary="boot.sh">
-      <option name="closed" value="true" />
-      <created>1709557472985</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1709557472985</updated>
+      <workItem from="1709647699957" duration="9358000" />
     </task>
     <task id="LOCAL-00048" summary="boot.sh">
       <option name="closed" value="true" />
@@ -621,7 +608,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709717230880</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709717346582</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1709717346582</updated>
+    </task>
+    <task id="LOCAL-00096" summary="autoupdater">
+      <option name="closed" value="true" />
+      <created>1709717520772</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1709717520772</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,6 +666,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$vcid_yanik_emmenegger.coverage" NAME="vcid_yanik_emmenegger Coverage Results" MODIFIED="1709648776757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1709581232690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__autoupdater_app_py_.coverage" NAME="Flask (autoupdater/app.py) Coverage Results" MODIFIED="1709716466846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vcid_yanik_emmenegger$Flask__autoupdater_app_py_.coverage" NAME="Flask (autoupdater/app.py) Coverage Results" MODIFIED="1709717328280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
