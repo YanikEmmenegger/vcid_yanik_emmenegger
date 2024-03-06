@@ -1,8 +1,11 @@
 #!/bin/sh
 
-# Setze deine Domain und E-Mail
+# Festlegen der Domain und E-Mail
 DOMAIN="vcid.yanik.pro"
-EMAIL="deine@email.de"
+EMAIL="deine@email.de" # Ersetze dies durch deine tatsächliche E-Mail-Adresse
+
+# Stelle sicher, dass das Webroot-Verzeichnis existiert
+mkdir -p /var/www/html
 
 # Prüfe, ob Zertifikate bereits existieren und erstelle oder erneuere sie
 if [ ! -e "/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
@@ -11,8 +14,8 @@ else
     certbot renew
 fi
 
-# Ersetze DEINE_DOMAIN in der NGINX-Konfiguration durch die tatsächliche Domain
-sed -i "s/DEINE_DOMAIN/$DOMAIN/g" /etc/nginx/conf.d/nginx.conf
+# Ersetze vcid.yanik.pro in der NGINX-Konfiguration
+sed -i "s/vcid.yanik.pro/$DOMAIN/g" /etc/nginx/conf.d/*.conf
 
 # Starte NGINX im Vordergrund
 nginx -g 'daemon off;'
