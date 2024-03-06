@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="boot.sh / Docker">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jenkis/docker-compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,15 +211,7 @@
       <workItem from="1709557178738" duration="3727000" />
       <workItem from="1709580088713" duration="905000" />
       <workItem from="1709581094651" duration="5387000" />
-      <workItem from="1709647699957" duration="4312000" />
-    </task>
-    <task id="LOCAL-00036" summary="environment configs (security)">
-      <option name="closed" value="true" />
-      <created>1709539649652</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1709539649653</updated>
+      <workItem from="1709647699957" duration="5249000" />
     </task>
     <task id="LOCAL-00037" summary="environment configs (security)">
       <option name="closed" value="true" />
@@ -605,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709650950121</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="boot.sh / Docker">
+      <option name="closed" value="true" />
+      <created>1709653232546</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1709653232546</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
