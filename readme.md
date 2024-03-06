@@ -2,84 +2,54 @@
 
 Dieses Dokument beschreibt, wie du die VCID App auf deinem Server einrichtest und betreibst.
 
-## Vorbedingungen
-
-Stelle sicher, dass `git`, `docker`, `docker-compose` und `pip` auf deinem Server installiert sind.
-
-## Boot-Script ausführbar machen
-
-Um das Boot-Script ausführbar zu machen, navigiere im Terminal zu deinem Repository-Verzeichnis und führe folgenden Befehl aus:
-
+## Voraussetzungen
 ```bash
-chmod +x boot.sh
+# Installiere Git
+sudo apt install -y git
 ```
-## Zertifikate erstellen
-
-Falls HTTPS-Zertifikate für vcid.yanik.pro (verknüpfte domain mit vm) noch nicht vorhanden sind, kannst du sie mit certbot erstellen. Führe die folgenden Befehle aus, um certbot zu installieren und die Zertifikate zu erstellen:
-!!! Achtung: App muss über https erreichbar sein, da sonst gewisse Funktionen nicht funktionieren. Falls https nicht möglich ist, müssen die Cookie Settings in der Flask App angepasst werden. !!!
-Entweder die .env Datei erweitern mit ENVIRONMENT=dev oder in der App die Cookie Settings anpassen.
-```pyhton app.py
-conf = {
-        'secure': False,
-        'samesite': None
-    }
-```
-
-    
+Klonen des Repositories
 ```bash
-sudo apt update
-sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d vcid.yanik.pro (eigene domain)
+git clone https://github.com/YanikEmmenegger/vcid_yanik_emmenegger.git
 ```
-## Nginx Konfiguration anpassen
-setze unter nginx/nginx.conf die korrekten Pfade für ssl_certificate und ssl_certificate_key:
+A-Record für die Domain auf die IP-Adresse des Servers zeigen lassen.
+
+## Installation
 ```bash
-ssl_certificate /etc/letsencrypt/live/DEINE_DOMAIN/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/DEINE_DOMAIN/privkey.pem;
+# In verzeichnis wechseln
+cd vcid_yanik_emmenegger
+# Installer ausführbar machen
+chmod +x INSTALL.sh
+# Installer ausführen
+./INSTALL.sh
 ```
+Anweisung vom Installer folgen.
 
-## .env Datei erstellen
-
-Erstelle eine .env Datei im Root-Verzeichnis des Projekts, um deine Supabase-Konfigurationen zu speichern. Die Datei sollte folgende Umgebungsvariablen beinhalten:
-    
+## App Starten
 ```bash
-SUPABASE_URL=deine_supabase_url
-SUPABASE_KEY=dein_supabase_key
+# In verzeichnis wechseln
+cd vcid_yanik_emmenegger
+# App starten
+./STARTER.sh
 ```
-Ersetze deine_supabase_url und dein_supabase_key mit deinen tatsächlichen Supabase-URL und Key.
+Dies Startet den Nginx und Flask Container sowie eine weitere Flask-App auf dem Port 8000.
+ein POST-Requst auf http://localhost:8000/ löst ein rebuild der App mit der neusten Version aus.
 
-## App starten
-Um die App zu starten, führe das Boot-Script aus:
-    
-```bash
-./boot.sh
-```
-Script holt sich die neuste Version von vcid und startet die App.
+Dies kann in einer GitHub Action genutzt werden um die App automatisch zu aktualisieren, sobald ein Master Push stattfindet:
+.github/workflows/push.yml
+```yaml
+name: Call Webhook on Push to Master
 
-## Zusatz -> Auto Update wenn neuste Version verfügbar auf Github
+on:
+  push:
+    branches:
+      - master
 
-unter autoupdater/ befindet sich eine weitere Flask app. Diese dient als Webhook für Github.
+jobs:
+  call-webhook:
+    runs-on: ubuntu-latest
 
-```bash
-cd autoupdater
-python3 -m venv venv
-source venv/bin/activate
-pip install gunicorn
-pip install flask
-```
-Webhook app starten: 
-```bash
-gunicorn -w 4 app:app -b 0.0.0.0:8000
-```
-
-Webhook in Github einrichten:
-.github/workflows/push.yml -> Domain anpassen
-```bash
     steps:
     - name: Call webhook
       run: |
-        curl -X POST http://vcid.yanik.pro:8000
+        curl -X POST http://DEINE_URL:8000
 ```
-
-
-
