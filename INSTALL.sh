@@ -12,6 +12,7 @@ sudo apt install -y git docker docker-compose pip certbot python3-certbot-nginx
 # Mache Skripts ausführbar
 chmod +x ./boot.sh
 chmod +x ./autoupdater/boot.sh
+chmod +x ./STARTER.sh
 
 # Frage den Benutzer nach der Domain
 read -p "Bitte geben Sie Ihre Domain ein: " DOMAIN
