@@ -12,4 +12,4 @@ jobs:
     steps:
     - name: Call webhook
       run: |
-        curl -X POST http://vcid.yanik.pro:8000
+        curl -X POST http://flask.yanik.pro:8000
