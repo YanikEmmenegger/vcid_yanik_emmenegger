@@ -35,4 +35,4 @@ docker compose up -d --build
 echo "Lösche alle nicht verwendeten Docker-Images..."
 docker image prune -a --force
 
-echo -e "\e[32m\nVorgang abgeschlossen.\e[0m"
+echo -e "\e[32m\nApplication wurde aktualisiert und neu gestartet !!.\e[0m"
