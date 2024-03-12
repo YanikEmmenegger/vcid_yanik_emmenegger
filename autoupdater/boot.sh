@@ -36,3 +36,4 @@ echo "Lösche alle nicht verwendeten Docker-Images..."
 docker image prune -a --force
 
 echo -e "\e[32m\nApplication wurde aktualisiert und neu gestartet !!.\e[0m"
+exit 0

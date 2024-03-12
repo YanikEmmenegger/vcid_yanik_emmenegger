@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Installer" />
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Installer">
+      <change beforePath="$PROJECT_DIR$/autoupdater/boot.sh" beforeDir="false" afterPath="$PROJECT_DIR$/autoupdater/boot.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -232,23 +234,7 @@
       <workItem from="1710153021377" duration="21000" />
       <workItem from="1710153051613" duration="602000" />
       <workItem from="1710159585798" duration="73000" />
-      <workItem from="1710247915627" duration="312000" />
-    </task>
-    <task id="LOCAL-00096" summary="autoupdater">
-      <option name="closed" value="true" />
-      <created>1709717520772</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1709717520772</updated>
-    </task>
-    <task id="LOCAL-00097" summary="autoupdater">
-      <option name="closed" value="true" />
-      <created>1709717671048</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1709717671048</updated>
+      <workItem from="1710247915627" duration="508000" />
     </task>
     <task id="LOCAL-00098" summary="autoupdater">
       <option name="closed" value="true" />
@@ -626,7 +612,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710248221226</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Installer">
+      <option name="closed" value="true" />
+      <created>1710248283168</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1710248283168</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Installer">
+      <option name="closed" value="true" />
+      <created>1710248373140</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1710248373140</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
