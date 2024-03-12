@@ -50,7 +50,7 @@ sudo apt install -y python3.11-venv
 python3 -m venv venv
 source venv/bin/activate
 pip install gunicorn flask
-
-echo "Installation abgeschlossen. Bitte logge dich aus und wieder ein, um die Docker-Gruppe zu aktualisieren."
-echo "Führe ./STARTER.sh aus, um die Anwendung zu starten."
+# echo erfolg in grün
+echo -e "\e[32m\nInstallation abgeschlossen. Bitte logge dich aus und wieder ein, um die Docker-Gruppe zu aktualisieren.\e[0m"
+echo -e "\e[32m\nFühre ./STARTER.sh aus, um die Anwendung zu starten.\e[0m"
 

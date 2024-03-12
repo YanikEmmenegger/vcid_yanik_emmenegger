@@ -20,5 +20,5 @@ sleep 5
 curl -X POST http://localhost:8000
 
 # Meldung in ROT
-echo -e "\e[31m\nDer Autoupdater wurde gestartet. Bitte Github Action auf korrekte URL einstellen Port 8000.\e[0m"
+echo -e "\e[32m\nDer Autoupdater wurde gestartet. Bitte Github Action auf korrekte URL einstellen Port 8000.\e[0m"
 exit 0
