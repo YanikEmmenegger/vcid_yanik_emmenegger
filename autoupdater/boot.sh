@@ -1,39 +1,53 @@
 #!/bin/bash
 
-# Dieses Skript wird auf dem Server ausgeführt, um den Service neu zu starten.
+# Dieses Skript wird auf dem Server ausgeführt, um den Service zu aktualisieren und neu zu starten.
 
-# Setzen Sie das erwartete Verzeichnis
-EXPECTED_DIR=PFAD_ANPASSEN_INSTALLER
+# Setze den erwarteten Pfad zu deinem Projekt
+EXPECTED_DIR="PFAD_ANPASSEN_INSTALLER"
 
-# Aktuelles Verzeichnis prüfen und wechseln falls notwendig
+# Wechsle zum erwarteten Verzeichnis, falls nicht bereits dort
 if [ "$(pwd)" != "$EXPECTED_DIR" ]; then
-    cd $EXPECTED_DIR
+    cd $EXPECTED_DIR || exit
 fi
 
-# Pürfen ob .env existiert
+# Überprüfe die Existenz der .env Datei
 if [ ! -f .env ]; then
     echo "Die .env Datei existiert nicht."
     exit 1
 fi
 
+# Sichere die .env Datei
 cp .env .env_backup
 
-# Git-Repository aktualisieren
+# Aktualisiere das Git-Repository
 git stash push --include-untracked
 git pull
 git stash pop
 
-# Wiederherstellen der .env Datei und boot.sh Berechtigungen
+# Stelle die .env Datei und Berechtigungen wieder her
 mv .env_backup .env
 chmod +x STARTER.sh
 chmod +x autoupdater/boot.sh
-# Images neu erstellen
-docker compose down --rmi all
-docker compose up -d --build
 
-# Lösche alle nicht verwendeten Docker-Images
-echo "Lösche alle nicht verwendeten Docker-Images..."
-docker image prune -a --force
+# Führe die Tests aus
+echo "Führe Tests aus..."
+python3 -m unittest discover tests
 
-echo -e "\e[32m\nApplication wurde aktualisiert und neu gestartet !!.\e[0m"
+# Prüfe den Exit-Code der Tests
+if [ $? -eq 0 ]; then
+    echo "Tests erfolgreich. Führe Deployment aus..."
+
+    # Images neu erstellen und starten
+    docker compose down --rmi all
+    docker compose up -d --build
+
+    # Lösche alle nicht verwendeten Docker-Images
+    echo "Lösche alle nicht verwendeten Docker-Images..."
+    docker image prune -a --force
+
+    echo -e "\e[32mApplication wurde aktualisiert und neu gestartet.\e[0m"
+else
+    echo "Tests fehlgeschlagen. Abbruch des Deployments."
+    exit 1
+fi
 exit 0
