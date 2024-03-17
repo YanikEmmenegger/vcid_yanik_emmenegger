@@ -36,7 +36,7 @@ python3 -m unittest discover tests
 # Prüfe den Exit-Code der Tests
 if [ $? -eq 0 ]; then
     echo "Tests erfolgreich. Führe Deployment aus..."
-
+    # Setze die Umgebung auf
     # Images neu erstellen und starten
     docker compose down --rmi all
     docker compose up -d --build
