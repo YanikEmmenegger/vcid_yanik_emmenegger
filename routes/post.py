@@ -71,7 +71,7 @@ def create_post_blueprint(supabase: Client, conf: dict):
                                        samesite=conf['samesite'],
                                        max_age=timedelta(days=30))
 
-    @post_blueprint.route('/', methods=['PUT'])
+    @post_blueprint.route('/', methods=['GET'])
     def get_posts():
         # get request args
         uuid = request.args.get('uuid')
