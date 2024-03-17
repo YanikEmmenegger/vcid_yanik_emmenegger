@@ -30,8 +30,6 @@ chmod +x autoupdater/boot.sh
 
 # Tests ausführen
 python -m unittest discover -s tests
-echo "Tests wurden erfolgreich durchgeführt."
-
 # Prüfen ob Tests erfolgreich waren
 if [ $? -ne 0 ]; then
     echo "Tests fehlgeschlagen. Abbruch."
