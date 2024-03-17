@@ -9,7 +9,7 @@ fi
 
 python3 -m venv venv
 source venv/bin/activate
-pip install gunicorn flask
+pip install -r requirements.txt
 # Start gunicorn with your Flask app
 gunicorn -b :8000 app:app &
 

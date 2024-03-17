@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Verison 1.0 (test autoupdater)">
-      <change afterPath="$PROJECT_DIR$/tests/test_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="b4154617-6549-4241-b8a2-8ab885ea9fe1" name="Changes" comment="Verison 1.0 (test autoupdater)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +68,7 @@
     "Python tests.Python tests for test_app.test_login_success.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/yanik/PycharmProjects/vcid_yanik_emmenegger",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -277,6 +273,7 @@
       <workItem from="1710247915627" duration="866000" />
       <workItem from="1710398911311" duration="753000" />
       <workItem from="1710575385578" duration="7121000" />
+      <workItem from="1710667880136" duration="6000" />
     </task>
     <task id="LOCAL-00100" summary="autoupdater">
       <option name="closed" value="true" />
