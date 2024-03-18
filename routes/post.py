@@ -122,7 +122,7 @@ def create_post_blueprint(supabase: Client, conf: dict):
                 pages = posts_count // limit + (1 if posts_count % limit > 50 else 0)
                 for page in range(pages):
                     # create links to next pages
-                    post_link = f"/api/post?offset={offset}&limit={limit}"
+                    post_link = f"/api/post/?offset={offset}&limit={limit}"
                     if uuid:
                         # add uuid to link
                         post_link += f"&uuid={uuid}"
