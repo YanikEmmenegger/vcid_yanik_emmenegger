@@ -83,7 +83,7 @@ def create_user_blueprint(supabase: Client):
                 pages = posts_count.count // limit + (1 if posts_count.count % limit > 50 else 0)
                 # create links to next pages
                 for page in range(pages):
-                    post_link = f"/api/post?uuid={uuid}&offset={offset}&limit={limit}"
+                    post_link = f"/api/post/?uuid={uuid}&offset={offset}&limit={limit}"
                     post_links.append(post_link)
                     offset += limit
             # create response with user and posts
